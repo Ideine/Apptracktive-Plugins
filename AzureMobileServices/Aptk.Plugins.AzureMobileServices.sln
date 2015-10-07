@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices", "AzureMobileServices\AzureMobileServices.Plugin\Aptk.Plugins.AzureMobileServices.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.Abstractions", "AzureMobileServices\AzureMobileServices.Plugin.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj", "{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.Abstractions", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj", "{6EDB0588-FFC5-4EF5-8A99-9E241D0F878D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.iOSUnified", "AzureMobileServices\AzureMobileServices.Plugin.iOSUnified\Aptk.Plugins.AzureMobileServices.iOSUnified.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.iOSUnified", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.iOSUnified\Aptk.Plugins.AzureMobileServices.iOSUnified.csproj", "{2882AEEB-D4CD-4EB9-8A6C-6653B33681F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.Android", "AzureMobileServices\AzureMobileServices.Plugin.Android\Aptk.Plugins.AzureMobileServices.Android.csproj", "{56A56F17-7DE1-4CA1-9617-BF32E971AC84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.Android", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.Android\Aptk.Plugins.AzureMobileServices.Android.csproj", "{56A56F17-7DE1-4CA1-9617-BF32E971AC84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsPhone8", "AzureMobileServices\AzureMobileServices.Plugin.WindowsPhone8\Aptk.Plugins.AzureMobileServices.WindowsPhone8.csproj", "{5876144B-47DD-4C4E-B421-BC03F191B996}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsPhone8", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.WindowsPhone8\Aptk.Plugins.AzureMobileServices.WindowsPhone8.csproj", "{5876144B-47DD-4C4E-B421-BC03F191B996}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsPhone81", "AzureMobileServices\AzureMobileServices.Plugin.WindowsPhone81\Aptk.Plugins.AzureMobileServices.WindowsPhone81.csproj", "{7169373F-0B82-4E5D-9129-7CC3065B90FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsPhone81", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.WindowsPhone81\Aptk.Plugins.AzureMobileServices.WindowsPhone81.csproj", "{7169373F-0B82-4E5D-9129-7CC3065B90FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsStore", "AzureMobileServices\AzureMobileServices.Plugin.WindowsStore\Aptk.Plugins.AzureMobileServices.WindowsStore.csproj", "{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aptk.Plugins.AzureMobileServices.WindowsStore", "Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.WindowsStore\Aptk.Plugins.AzureMobileServices.WindowsStore.csproj", "{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

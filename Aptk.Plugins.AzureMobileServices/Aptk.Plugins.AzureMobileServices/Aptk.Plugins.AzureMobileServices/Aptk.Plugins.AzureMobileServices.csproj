@@ -35,14 +35,8 @@
     <DocumentationFile>bin\Release\Aptk.Plugins.AzureMobileServices.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
-      <Name>Aptk.Plugins.AzureMobileServices.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="CrossAzureMobileServices.cs" />
+    <Compile Include="IAptkAmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

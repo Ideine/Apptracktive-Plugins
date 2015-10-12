@@ -80,18 +80,17 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
-      <Name>Aptk.Plugins.AzureMobileServices.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\Aptk.Plugins.AzureMobileServices\CrossAzureMobileServices.cs">
       <Link>CrossAzureMobileServices.cs</Link>
     </Compile>
-    <Compile Include="AzureMobileServicesImplementation.cs" />
+    <Compile Include="AptkAmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>Aptk.Plugins.AzureMobileServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

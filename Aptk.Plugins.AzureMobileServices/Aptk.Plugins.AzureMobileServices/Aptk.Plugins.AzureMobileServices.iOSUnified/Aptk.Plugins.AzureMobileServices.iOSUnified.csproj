@@ -38,20 +38,20 @@
     <Compile Include="..\Aptk.Plugins.AzureMobileServices\CrossAzureMobileServices.cs">
       <Link>CrossAzureMobileServices.cs</Link>
     </Compile>
-    <Compile Include="AzureMobileServicesImplementation.cs" />
+    <Compile Include="AptkAmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
-      <Name>Aptk.Plugins.AzureMobileServices.Abstractions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>Aptk.Plugins.AzureMobileServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

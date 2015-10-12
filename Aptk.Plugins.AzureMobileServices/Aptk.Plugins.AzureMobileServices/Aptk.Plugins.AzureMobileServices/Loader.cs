@@ -2,10 +2,7 @@
 
 namespace Aptk.Plugins.AzureMobileServices
 {
-    /// <summary>
-    /// Cross platform AzureMobileServices implemenations
-    /// </summary>
-    public class CrossAzureMobileServices
+    public static class Loader
     {
         private static readonly Lazy<IAptkAmsService> LazyInstance = new Lazy<IAptkAmsService>(CreateAptkAmsService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
 

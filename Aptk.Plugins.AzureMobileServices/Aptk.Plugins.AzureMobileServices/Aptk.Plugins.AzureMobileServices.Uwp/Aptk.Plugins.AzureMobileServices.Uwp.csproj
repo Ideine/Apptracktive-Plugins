@@ -107,10 +107,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Aptk.Plugins.AzureMobileServices\CrossAzureMobileServices.cs">
-      <Link>CrossAzureMobileServices.cs</Link>
+    <Compile Include="..\Aptk.Plugins.AzureMobileServices\Loader.cs">
+      <Link>Loader.cs</Link>
     </Compile>
-    <Compile Include="AptkAmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\Aptk.Plugins.AzureMobileServices.Uwp.rd.xml" />
   </ItemGroup>

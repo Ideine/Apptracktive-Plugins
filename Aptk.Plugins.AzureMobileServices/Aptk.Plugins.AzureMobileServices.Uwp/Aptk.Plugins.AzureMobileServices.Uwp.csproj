@@ -107,9 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Aptk.Plugins.AzureMobileServices\Loader.cs">
-      <Link>Loader.cs</Link>
-    </Compile>
+    <Compile Include="AptkAmsPlatformIdentityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\Aptk.Plugins.AzureMobileServices.Uwp.rd.xml" />
   </ItemGroup>
@@ -119,6 +117,7 @@
       <Name>Aptk.Plugins.AzureMobileServices</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\Aptk.Plugins.AzureMobileServices.Shared\Aptk.Plugins.AzureMobileServices.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

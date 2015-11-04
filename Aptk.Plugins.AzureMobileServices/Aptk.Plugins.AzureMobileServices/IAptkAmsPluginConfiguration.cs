@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace Aptk.Plugins.AzureMobileServices
 {
@@ -26,12 +21,6 @@ namespace Aptk.Plugins.AzureMobileServices
         /// Assembly hosting model classes (usually Core)
         /// </summary>
         Assembly ModelAssembly { get; set; }
-
-        /// <summary>
-        /// Initialization timeout
-        /// </summary>
-        /// <value>30sec</value>
-        TimeSpan InitTimeout { get; set; }
 
         /// <summary>
         /// Use single sign on if available (depending of the platform)

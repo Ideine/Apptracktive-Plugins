@@ -1,6 +1,7 @@
 ﻿using Aptk.Plugins.AzureMobileServices.Api;
 using Aptk.Plugins.AzureMobileServices.Data;
 using Aptk.Plugins.AzureMobileServices.Identity;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aptk.Plugins.AzureMobileServices
 {
@@ -9,6 +10,16 @@ namespace Aptk.Plugins.AzureMobileServices
     /// </summary>
     public interface IAptkAmsService
     {
+        /// <summary>
+        /// Current plugin configuration
+        /// </summary>
+        IAptkAmsPluginConfiguration Configuration { get; }
+
+        /// <summary>
+        /// Current Mobile Service Client
+        /// </summary>
+        IMobileServiceClient Client { get; }
+
         /// <summary>
         /// Service to manage data
         /// </summary>

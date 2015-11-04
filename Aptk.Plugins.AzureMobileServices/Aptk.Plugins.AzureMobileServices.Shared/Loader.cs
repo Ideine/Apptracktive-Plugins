@@ -22,7 +22,9 @@ namespace Aptk.Plugins.AzureMobileServices
         private static readonly Lazy<IAptkAmsDataService> LazyDataInstance = new Lazy<IAptkAmsDataService>(CreateAptkAmsDataService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
         private static readonly Lazy<IAptkAmsIdentityService> LazyIdentityInstance = new Lazy<IAptkAmsIdentityService>(CreateAptkAmsIdentityService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
         private static readonly Lazy<IAptkAmsPlatformIdentityService> LazyPlatformIdentityInstance = new Lazy<IAptkAmsPlatformIdentityService>(CreateAptkAmsPlatformIdentityService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
-        private static readonly Lazy<IMobileServiceClient> LazyClientInstance = new Lazy<IMobileServiceClient>(CreateMobileServiceClient, System.Threading.LazyThreadSafetyMode.PublicationOnly);
+        
+        private static IAptkAmsPluginConfiguration _configuration;
+        private static IMobileServiceClient _client;
 
         #region Init
 #if __ANDROID__
@@ -32,12 +34,12 @@ namespace Aptk.Plugins.AzureMobileServices
         /// </summary>
         public static void Init(IAptkAmsPluginConfiguration configuration, Context context)
         {
-            Configuration = configuration;
-            _clientInstance = CreateMobileServiceClient();
-            Context = context;
+            _configuration = configuration;
+            _client = CreateMobileServiceClient();
+            _context = context;
         }
 
-        internal static Context Context { get; set; }
+        private static Context _context;
 
 #elif __IOS__
 
@@ -46,24 +48,27 @@ namespace Aptk.Plugins.AzureMobileServices
         /// </summary>
         public static void Init(IAptkAmsPluginConfiguration configuration, UIViewController rootViewController)
         {
-            Configuration = configuration;
-            _clientInstance = CreateMobileServiceClient();
-            RootViewController = rootViewController;
+            _configuration = configuration;
+            _client = CreateMobileServiceClient();
+            _rootViewController = rootViewController;
         }
 
-        internal static UIViewController RootViewController { get; set; }
+        private static UIViewController _rootViewController;
 
 #else
 
         public static void Init(IAptkAmsPluginConfiguration configuration)
         {
-            Configuration = configuration;
-            _clientInstance = CreateMobileServiceClient();
+            _configuration = configuration;
+            _client = CreateMobileServiceClient();
         }
 
 #endif
 
-        internal static IAptkAmsPluginConfiguration Configuration { get; private set; } 
+        private static IMobileServiceClient CreateMobileServiceClient()
+        {
+            return new MobileServiceClient(_configuration.AmsAppUrl, _configuration.AmsAppKey);
+        }
         #endregion
 
         #region Instance
@@ -85,7 +90,7 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IAptkAmsService CreateAptkAmsService()
         {
-            return new AptkAmsService();
+            return new AptkAmsService(_configuration, _client, DataInstance, IdentityInstance, ApiInstance);
         }
         #endregion
 
@@ -108,7 +113,7 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IAptkAmsApiService CreateAptkAmsApiService()
         {
-            return new AptkAmsApiService();
+            return new AptkAmsApiService(_configuration, _client);
         }
         #endregion
 
@@ -131,7 +136,7 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IAptkAmsDataService CreateAptkAmsDataService()
         {
-            return new AptkAmsDataService();
+            return new AptkAmsDataService(_configuration, _client);
         }
         #endregion
 
@@ -154,7 +159,7 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IAptkAmsIdentityService CreateAptkAmsIdentityService()
         {
-            return new AptkAmsIdentityService();
+            return new AptkAmsIdentityService(_configuration, _client);
         }
         #endregion
 
@@ -180,38 +185,15 @@ namespace Aptk.Plugins.AzureMobileServices
 #if PORTABLE
             return null;
 #elif __ANDROID__
-            return new AptkAmsPlatformIdentityService(ClientInstance, Context);
+            return new AptkAmsPlatformIdentityService(_client, _context);
 #elif __IOS__
-            return new AptkAmsPlatformIdentityService(ClientInstance, RootViewController);
+            return new AptkAmsPlatformIdentityService(_client, _rootViewController);
 #elif WINDOWS_PHONE
-            return new AptkAmsPlatformIdentityService(ClientInstance);
+            return new AptkAmsPlatformIdentityService(_client);
 #else
-            return new AptkAmsPlatformIdentityService(ClientInstance, Configuration.UseSingleSignOnIfAvailable);
+            return new AptkAmsPlatformIdentityService(_client, _configuration.UseSingleSignOnIfAvailable);
 #endif
         }
-        #endregion
-
-        #region ClientInstance
-
-        /// <summary>
-        /// Current Client instance to use
-        /// </summary>
-        private static IMobileServiceClient _clientInstance;
-        public static IMobileServiceClient ClientInstance
-        {
-            get { return _clientInstance ?? LazyClientInstance.Value; }
-            set { _clientInstance = value; }
-        }
-
-        private static IMobileServiceClient CreateMobileServiceClient()
-        {
-            if (Configuration == null)
-            {
-                throw new ArgumentException("Your must specify an IAptkAmsPluginConfiguration implementation to make this plugin work");
-            }
-            return new MobileServiceClient(Configuration.AmsAppUrl, Configuration.AmsAppKey);
-        }
-
         #endregion
     }
 }

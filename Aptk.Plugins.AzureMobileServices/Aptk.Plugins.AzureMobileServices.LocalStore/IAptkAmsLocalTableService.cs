@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Aptk.Plugins.AzureMobileServices.Data;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Data
+namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
     /// <summary>
     /// Local specific data request service
@@ -18,13 +16,13 @@ namespace Aptk.Plugins.AzureMobileServices.Data
         /// </summary>
         /// <param name="query">Optional query to filter items to pull</param>
         /// <returns></returns>
-        Task Pull(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null);
+        Task PullAsync(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null);
 
         /// <summary>
         /// Deletes all items from local SQLite table
         /// </summary>
         /// <param name="force">Force deletion</param>
         /// <returns></returns>
-        Task Purge(bool force = false);
+        Task PurgeAsync(bool force = false);
     }
 }

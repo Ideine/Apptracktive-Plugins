@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Data;
+using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
 using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore

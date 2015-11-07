@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AptkAmsPlatformIdentityService.cs" />
+    <Compile Include="Identity\AptkAmsPlatformIdentityService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,9 +68,9 @@
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices\Aptk.Plugins.AzureMobileServices.csproj">
+    <ProjectReference Include="..\Aptk.Plugins.AzureMobileServices.Abstractions\Aptk.Plugins.AzureMobileServices.Abstractions.csproj">
       <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
-      <Name>Aptk.Plugins.AzureMobileServices</Name>
+      <Name>Aptk.Plugins.AzureMobileServices.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

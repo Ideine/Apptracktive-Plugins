@@ -1,6 +1,8 @@
 ﻿using System;
-using Aptk.Plugins.AzureMobileServices.Api;
-using Aptk.Plugins.AzureMobileServices.Data;
+using Aptk.Plugins.AzureMobileServices.Abstractions;
+using Aptk.Plugins.AzureMobileServices.Abstractions.Api;
+using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+using Aptk.Plugins.AzureMobileServices.Abstractions.Identity;
 using Aptk.Plugins.AzureMobileServices.Identity;
 using Microsoft.WindowsAzure.MobileServices;
 
@@ -188,10 +190,8 @@ namespace Aptk.Plugins.AzureMobileServices
             return new AptkAmsPlatformIdentityService(_client, _context);
 #elif __IOS__
             return new AptkAmsPlatformIdentityService(_client, _rootViewController);
-#elif WINDOWS_PHONE
-            return new AptkAmsPlatformIdentityService(_client);
 #else
-            return new AptkAmsPlatformIdentityService(_client, _configuration.UseSingleSignOnIfAvailable);
+            return new AptkAmsPlatformIdentityService(_client);
 #endif
         }
         #endregion

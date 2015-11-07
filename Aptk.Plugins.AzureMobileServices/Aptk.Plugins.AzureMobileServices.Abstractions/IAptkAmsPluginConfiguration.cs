@@ -21,10 +21,5 @@ namespace Aptk.Plugins.AzureMobileServices.Abstractions
         /// Assembly hosting model classes (usually Core)
         /// </summary>
         Assembly ModelAssembly { get; set; }
-
-        /// <summary>
-        /// Use single sign on if available (depending of the platform)
-        /// </summary>
-        bool UseSingleSignOnIfAvailable { get; set; }
     }
 }

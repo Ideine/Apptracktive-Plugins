@@ -7,8 +7,8 @@
     <ProjectGuid>{F6172CDB-59C0-4C77-8053-020958831BE4}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aptk.Plugins.AzureMobileServices.Sample.Windows</RootNamespace>
-    <AssemblyName>Aptk.Plugins.AzureMobileServices.Sample.Windows</AssemblyName>
+    <RootNamespace>Aptk.Plugins.AzureMobileServices.Sample.Uwp</RootNamespace>
+    <AssemblyName>Aptk.Plugins.AzureMobileServices.Sample.Uwp</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>

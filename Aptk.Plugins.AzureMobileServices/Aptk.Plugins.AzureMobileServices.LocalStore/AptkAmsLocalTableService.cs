@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
+using Newtonsoft.Json.Linq;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
@@ -14,7 +16,9 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private readonly IAptkAmsLocalStoreService _localStoreService;
         private IMobileServiceSyncTable<T> _localTable;
 
-        public AptkAmsLocalTableService(IAptkAmsPluginLocalStoreExtensionConfiguration localStoreConfiguration, IMobileServiceClient client, IAptkAmsLocalStoreService localStoreService)
+        public AptkAmsLocalTableService(IAptkAmsPluginLocalStoreExtensionConfiguration localStoreConfiguration, 
+            IMobileServiceClient client, 
+            IAptkAmsLocalStoreService localStoreService)
         {
             _localStoreConfiguration = localStoreConfiguration;
             _client = client;
@@ -24,52 +28,149 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private async Task<bool> InitializeAsync()
         {
             var cts = new CancellationTokenSource();
-            await Task.WhenAny(_localStoreService.InitializationTask, Task.Delay(_localStoreConfiguration.InitTimeout, cts.Token));
+            try
+            {
+                await Task.WhenAny(_localStoreService.InitializationTask, Task.Delay(_localStoreConfiguration.InitTimeout, cts.Token));
+            }
+            catch (TaskCanceledException)
+            {
+                throw new MobileServiceInvalidOperationException($"Initialization timed out after {_localStoreConfiguration.InitTimeout.TotalSeconds} seconds.", null, null);
+            }
 
             if (_localStoreService.InitializationTask.IsCompleted && _client.SyncContext.IsInitialized)
             {
                 _localTable = _client.GetSyncTable<T>();
             }
+
             return _localStoreService.InitializationTask.IsCompleted;
         }
 
-
-        public async Task<MobileServiceCollection<T, T>> ToCollectionAsync(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null)
+        public async Task<JToken> ReadAsync(string query)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to retrieve your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to read data. Initialization failed.", null, null);
 
-            return query == null ? await _localTable.CreateQuery().ToCollectionAsync() : await query(_localTable.CreateQuery()).ToCollectionAsync();
+            return await _localTable.ReadAsync(query);
         }
 
-        public async Task<IList<T>> ToListAsync(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null)
+        public async Task<JObject> InsertAsync(JObject instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to retrieve your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to insert data. Initialization failed.", null, null);
 
-            return query == null ? await _localTable.CreateQuery().ToListAsync() : await query(_localTable.CreateQuery()).ToListAsync();
+            return await _localTable.InsertAsync(instance);
         }
 
-        public async Task<IEnumerable<T>> ToEnumerableAsync(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null)
+        public async Task UpdateAsync(JObject instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to retrieve your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to update data. Initialization failed.", null, null);
 
-            return query == null ? await _localTable.CreateQuery().ToEnumerableAsync() : await query(_localTable.CreateQuery()).ToEnumerableAsync();
+            await _localTable.UpdateAsync(instance);
         }
 
-        public async Task<T> LookupAsync(string id)
+        public async Task DeleteAsync(JObject instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to retrieve your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to delete data. Initialization failed.", null, null);
+
+            await _localTable.DeleteAsync(instance);
+        }
+
+        async Task<T> IMobileServiceSyncTable<T>.LookupAsync(string id)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to lookup data. Initialization failed.", null, null);
 
             return await _localTable.LookupAsync(id);
+        }
+
+        public IMobileServiceTableQuery<T> CreateQuery()
+        {
+            return _localTable.CreateQuery();
+        }
+
+        public IMobileServiceTableQuery<T> IncludeTotalCount()
+        {
+            return _localTable.IncludeTotalCount();
+        }
+
+        public IMobileServiceTableQuery<T> Where(Expression<Func<T, bool>> predicate)
+        {
+            return _localTable.Where(predicate);
+        }
+
+        public IMobileServiceTableQuery<U> Select<U>(Expression<Func<T, U>> selector)
+        {
+            return _localTable.Select(selector);
+        }
+
+        public IMobileServiceTableQuery<T> OrderBy<TKey>(Expression<Func<T, TKey>> keySelector)
+        {
+            return _localTable.OrderBy(keySelector);
+        }
+
+        public IMobileServiceTableQuery<T> OrderByDescending<TKey>(Expression<Func<T, TKey>> keySelector)
+        {
+            return _localTable.OrderByDescending(keySelector);
+        }
+
+        public IMobileServiceTableQuery<T> ThenBy<TKey>(Expression<Func<T, TKey>> keySelector)
+        {
+            return _localTable.ThenBy(keySelector);
+        }
+
+        public IMobileServiceTableQuery<T> ThenByDescending<TKey>(Expression<Func<T, TKey>> keySelector)
+        {
+            return _localTable.ThenByDescending(keySelector);
+        }
+
+        public IMobileServiceTableQuery<T> Skip(int count)
+        {
+            return _localTable.Skip(count);
+        }
+
+        public IMobileServiceTableQuery<T> Take(int count)
+        {
+            return _localTable.Take(count);
+        }
+
+        public async Task<IEnumerable<T>> ToEnumerableAsync()
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to retrieve data. Initialization failed.", null, null);
+
+            return await _localTable.ToEnumerableAsync();
+        }
+
+        public async Task<List<T>> ToListAsync()
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to retrieve data. Initialization failed.", null, null);
+
+            return await _localTable.ToListAsync();
+        }
+
+        public async Task<IEnumerable<T>> ReadAsync()
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to read data. Initialization failed.", null, null);
+
+            return await _localTable.ReadAsync();
+        }
+
+        public async Task<IEnumerable<U>> ReadAsync<U>(IMobileServiceTableQuery<U> query)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to read data. Initialization failed.", null, null);
+
+            return await _localTable.ReadAsync(query);
         }
 
         public async Task RefreshAsync(T instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to refresh your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to refresh data. Initialization failed.", null, null);
 
             await _localTable.RefreshAsync(instance);
         }
@@ -77,7 +178,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         public async Task InsertAsync(T instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to insert your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to insert data. Initialization failed.", null, null);
 
             await _localTable.InsertAsync(instance);
         }
@@ -85,7 +186,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         public async Task UpdateAsync(T instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to update your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to update data. Initialization failed.", null, null);
 
             await _localTable.UpdateAsync(instance);
         }
@@ -93,25 +194,61 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         public async Task DeleteAsync(T instance)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to delete your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to delete data. Initialization failed.", null, null);
 
             await _localTable.DeleteAsync(instance);
         }
 
-        public async Task PullAsync(Func<IMobileServiceTableQuery<T>, IMobileServiceTableQuery<T>> query = null)
+        public async Task PullAsync<U>(string queryId, IMobileServiceTableQuery<U> query, bool pushOtherTables,
+            CancellationToken cancellationToken)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to pull your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
 
-            await _localTable.PullAsync(typeof(T).Name, query == null ? _localTable.CreateQuery() : query(_localTable.CreateQuery()));
+            await _localTable.PullAsync(queryId, query, pushOtherTables, cancellationToken);
         }
 
-        public async Task PurgeAsync(bool force = false)
+        public async Task PurgeAsync<U>(string queryId, IMobileServiceTableQuery<U> query, CancellationToken cancellationToken)
         {
             if (!await InitializeAsync())
-                throw new MobileServiceInvalidOperationException("Unable to purge your data. Initialization failed.", null, null);
+                throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
 
-            await _localTable.PurgeAsync(force);
+            await _localTable.PurgeAsync(queryId, query, cancellationToken);
+        }
+
+        async Task<JObject> IMobileServiceSyncTable.LookupAsync(string id)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to lookup data. Initialization failed.", null, null);
+
+            return await ((IMobileServiceSyncTable) _localTable).LookupAsync(id);
+        }
+
+        public async Task PullAsync(string queryId, string query, IDictionary<string, string> parameters, bool pushOtherTables,
+            CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(queryId, query, parameters, pushOtherTables, cancellationToken);
+        }
+
+        public async Task PurgeAsync(string queryId, string query, bool force, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
+
+            await _localTable.PurgeAsync(queryId, query, force, cancellationToken);
+        }
+
+        public MobileServiceClient MobileServiceClient => _localTable.MobileServiceClient;
+
+        public string TableName => _localTable.TableName;
+
+        public MobileServiceRemoteTableOptions SupportedOptions
+        {
+            get { return _localTable.SupportedOptions; }
+            set { _localTable.SupportedOptions = value; }
         }
     }
 }

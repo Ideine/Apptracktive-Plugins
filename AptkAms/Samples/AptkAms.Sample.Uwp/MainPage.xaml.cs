@@ -20,11 +20,13 @@ namespace AptkAms.Sample.Uwp
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
         public MainPage()
         {
             this.InitializeComponent();
+
+            this.LoadApplication(new Core.App());
         }
     }
 }

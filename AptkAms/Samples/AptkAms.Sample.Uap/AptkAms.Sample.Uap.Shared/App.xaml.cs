@@ -8,13 +8,16 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms;
+using Application = Windows.UI.Xaml.Application;
+using Frame = Windows.UI.Xaml.Controls.Frame;
+using NavigationEventArgs = Windows.UI.Xaml.Navigation.NavigationEventArgs;
 
 // Pour plus d'informations sur le modèle Application vide, consultez la page http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -65,6 +68,9 @@ namespace AptkAms.Sample.Uap
 
                 // TODO: modifier cette valeur à une taille de cache qui contient à votre application
                 rootFrame.CacheSize = 1;
+
+                // Init Xamarin Forms
+                Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

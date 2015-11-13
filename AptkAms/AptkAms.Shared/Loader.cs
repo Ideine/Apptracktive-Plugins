@@ -48,14 +48,14 @@ namespace Aptk.Plugins.AzureMobileServices
         /// <summary>
         /// Initialize iOS plugin
         /// </summary>
-        public static void Init(IAptkAmsPluginConfiguration configuration, UIViewController rootViewController)
+        public static void Init(IAptkAmsPluginConfiguration configuration, UIApplication application)
         {
             _configuration = configuration;
             _client = CreateMobileServiceClient();
-            _rootViewController = rootViewController;
+            _application = application;
         }
 
-        private static UIViewController _rootViewController;
+        private static UIApplication _application;
 
 #else
 
@@ -189,7 +189,7 @@ namespace Aptk.Plugins.AzureMobileServices
 #elif __ANDROID__
             return new AptkAmsPlatformIdentityService(_client, _context);
 #elif __IOS__
-            return new AptkAmsPlatformIdentityService(_client, _rootViewController);
+            return new AptkAmsPlatformIdentityService(_client, _application);
 #else
             return new AptkAmsPlatformIdentityService(_client);
 #endif

@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using AptkAms.Sample.Core;
+using AptkAms.Sample.Core.Configuration;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -13,6 +14,7 @@ namespace AptkAms.Sample.Droid
         {
             base.OnCreate(bundle);
             Forms.Init(this, bundle);
+            Aptk.Plugins.AzureMobileServices.Loader.Init(new AptkAmsPluginConfiguration(), ApplicationContext);
             this.LoadApplication(new App());
         }
     }

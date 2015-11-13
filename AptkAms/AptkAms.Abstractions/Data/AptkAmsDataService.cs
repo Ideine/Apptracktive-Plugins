@@ -11,7 +11,7 @@ namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
     {
         private readonly IAptkAmsPluginConfiguration _configuration;
         private readonly IMobileServiceClient _client;
-        private List<IAptkAmsRemoteTableService<ITableData>> _remoteTableServices;
+        private List<object> _remoteTableServices;
         private bool _isInitilized;
 
         public AptkAmsDataService(IAptkAmsPluginConfiguration configuration, IMobileServiceClient client)
@@ -27,7 +27,7 @@ namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
         {
             if (!_isInitilized)
             {
-                _remoteTableServices = new List<IAptkAmsRemoteTableService<ITableData>>();
+                _remoteTableServices = new List<object>();
 
                 // Get the list of tables
                 List<Type> tableTypes;
@@ -55,13 +55,14 @@ namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
 
         public IAptkAmsRemoteTableService<T> RemoteTable<T>() where T : ITableData
         {
-            var remoteTable = _remoteTableServices.FirstOrDefault(t => t is IAptkAmsRemoteTableService<T>);
-            if (remoteTable == null)
+            var genericRemoteTable = _remoteTableServices.FirstOrDefault(t => t is AptkAmsRemoteTableService<T>);
+            if (genericRemoteTable == null)
             {
-                remoteTable = (IAptkAmsRemoteTableService<ITableData>) new AptkAmsRemoteTableService<T>(_client);
+                var remoteTable = new AptkAmsRemoteTableService<T>(_client);
+                genericRemoteTable = remoteTable;
                 _remoteTableServices.Add(remoteTable);
             }
-            return remoteTable as AptkAmsRemoteTableService<T>;
+            return genericRemoteTable as AptkAmsRemoteTableService<T>;
         }
     }
 }

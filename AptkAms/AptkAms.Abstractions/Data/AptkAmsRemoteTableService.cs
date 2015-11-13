@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
 {
-    public class AptkAmsRemoteTableService<T> : IAptkAmsRemoteTableService<T>
+    public class AptkAmsRemoteTableService<T> : IAptkAmsRemoteTableService<T> where T : ITableData
     {
         private readonly IMobileServiceClient _client;
         private IMobileServiceTable<T> _remoteTable;
@@ -34,14 +34,6 @@ namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
 
             return _isInitialized;
         }
-
-        /*public async Task UndeleteAsync(T instance)
-        {
-            if (!Initialize())
-                throw new MobileServiceInvalidOperationException("Unable to undelete your data. Initialization failed.", null, null);
-
-            await _remoteTable.UndeleteAsync(instance);
-        }*/
 
         public async Task<JToken> ReadAsync(string query)
         {

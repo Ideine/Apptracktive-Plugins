@@ -7,7 +7,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
     /// Local specific data request service
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IAptkAmsLocalTableService<T> : IMobileServiceSyncTable<T>, IAptkAmsTableService<T>
+    public interface IAptkAmsLocalTableService<T> : IMobileServiceSyncTable<T>, IAptkAmsTableService<T> where T : ITableData
     {
     }
 }

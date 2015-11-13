@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Newtonsoft.Json.Linq;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
-    public class AptkAmsLocalTableService<T> : IAptkAmsLocalTableService<T>
+    public class AptkAmsLocalTableService<T> : IAptkAmsLocalTableService<T> where T : ITableData
     {
         private readonly IAptkAmsPluginLocalStoreExtensionConfiguration _localStoreConfiguration;
         private readonly IMobileServiceClient _client;

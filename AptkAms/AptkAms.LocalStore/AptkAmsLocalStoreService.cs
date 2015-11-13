@@ -20,7 +20,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private readonly IAptkAmsPluginLocalStoreExtensionConfiguration _localStoreConfiguration;
         private MobileServiceSQLiteStore _localStore;
         private readonly IMobileServiceClient _client;
-        private List<IAptkAmsLocalTableService<ITableData>> _localTableServices;
+        private List<object> _localTableServices;
 
         public AptkAmsLocalStoreService(IAptkAmsPluginConfiguration configuration, 
             IAptkAmsPluginLocalStoreExtensionConfiguration localStoreConfiguration, 
@@ -39,7 +39,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         {
             if (!_client.SyncContext.IsInitialized)
             {
-                _localTableServices = new List<IAptkAmsLocalTableService<ITableData>>();
+                _localTableServices = new List<object>();
 
                 // Init local store
                 var fullPath = Path.Combine(_localStoreConfiguration.DatabaseFullPath, _localStoreConfiguration.DatabaseFileName);
@@ -94,13 +94,15 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
 
         public IAptkAmsLocalTableService<T> GetLocalTable<T>() where T : ITableData
         {
-            var localTable = _localTableServices.FirstOrDefault(t => t is IAptkAmsLocalTableService<T>);
-            if (localTable == null)
+            var genericLocalTable = _localTableServices.FirstOrDefault(t => t is AptkAmsLocalTableService<T>);
+            if (genericLocalTable == null)
             {
-                localTable = (IAptkAmsLocalTableService<ITableData>) new AptkAmsLocalTableService<T>(_localStoreConfiguration, _client, this);
+                var localTable = new AptkAmsLocalTableService<T>(_localStoreConfiguration, _client, this);
+                genericLocalTable = localTable;
                 _localTableServices.Add(localTable);
             }
-            return localTable as AptkAmsLocalTableService<T>;
+
+            return genericLocalTable as AptkAmsLocalTableService<T>;
         }
 
         public async Task PushAsync()

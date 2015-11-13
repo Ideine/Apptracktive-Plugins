@@ -2,7 +2,7 @@
 
 namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
 {
-    public interface IAptkAmsRemoteTableService<T> : IMobileServiceTable<T>, IAptkAmsTableService<T>
+    public interface IAptkAmsRemoteTableService<T> : IMobileServiceTable<T>, IAptkAmsTableService<T> where T : ITableData
     {
     }
 }

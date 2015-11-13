@@ -41,12 +41,18 @@
       <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
       <Name>AptkAms.Abstractions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\AptkAms\AptkAms.csproj">
+      <Project>{4d073c1d-c46c-4b18-92cc-d3729e11dc88}</Project>
+      <Name>AptkAms</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Configuration\AptkAmsPluginConfiguration.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\TodoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

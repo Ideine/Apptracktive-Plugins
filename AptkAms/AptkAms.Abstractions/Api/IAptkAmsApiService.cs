@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Api
+namespace Aptk.Plugins.AzureMobileServices.Api
 {
     /// <summary>
     /// Service to send custom request

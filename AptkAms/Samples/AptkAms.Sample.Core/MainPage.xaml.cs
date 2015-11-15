@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices;
-using Aptk.Plugins.AzureMobileServices.Abstractions;
+﻿using Aptk.Plugins.AzureMobileServices;
 using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
@@ -14,7 +12,7 @@ namespace AptkAms.Sample.Core
         {
             InitializeComponent();
 
-            _aptkAmsService = Loader.Instance;
+            _aptkAmsService = AptkPluginLoader.Instance;
         }
 
         protected override async void OnAppearing()

@@ -1,9 +1,10 @@
-﻿using Aptk.Plugins.AzureMobileServices.Abstractions.Api;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Identity;
+﻿
+using Aptk.Plugins.AzureMobileServices.Api;
+using Aptk.Plugins.AzureMobileServices.Data;
+using Aptk.Plugins.AzureMobileServices.Identity;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions
+namespace Aptk.Plugins.AzureMobileServices
 {
     /// <summary>
     /// Service to request Azure Mobile Services

@@ -8,7 +8,7 @@
     <ProjectGuid>{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aptk.Plugins.AzureMobileServices.Abstractions</RootNamespace>
+    <RootNamespace>Aptk.Plugins.AzureMobileServices</RootNamespace>
     <AssemblyName>Aptk.Plugins.AzureMobileServices.Abstractions</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
@@ -39,8 +39,7 @@
   <ItemGroup>
     <Compile Include="Api\AptkAmsApiService.cs" />
     <Compile Include="Api\IAptkAmsApiService.cs" />
-    <Compile Include="AptkAmsService.cs" />
-    <Compile Include="AptkAmsPluginBaseConfiguration.cs" />
+    <Compile Include="AptkAmsPluginConfiguration.cs" />
     <Compile Include="Data\AptkAmsRemoteTableService.cs" />
     <Compile Include="Data\AptkAmsDataService.cs" />
     <Compile Include="Data\EntityData.cs" />
@@ -49,7 +48,12 @@
     <Compile Include="Data\IAptkAmsTableService.cs" />
     <Compile Include="Data\IAptkAmsRemoteTableService.cs" />
     <Compile Include="Data\IAptkAmsDataService.cs" />
+    <Compile Include="Identity\AptkAmsAuthenticationProvider.cs" />
     <Compile Include="Identity\AptkAmsBaseIdentityService.cs" />
+    <Compile Include="Identity\AptkAmsAuthenticationProviderExtension.cs" />
+    <Compile Include="Identity\AptkAmsCredentials.cs" />
+    <Compile Include="Identity\IAptkAmsCredentialsCacheService.cs" />
+    <Compile Include="Identity\IAptkAmsCredentials.cs" />
     <Compile Include="Identity\IAptkAmsIdentityService.cs" />
     <Compile Include="IAptkAmsService.cs" />
     <Compile Include="Identity\IAptkAmsPlatformIdentityService.cs" />

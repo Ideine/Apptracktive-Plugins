@@ -6,8 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Abstractions;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+using Aptk.Plugins.AzureMobileServices.Data;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -17,13 +16,13 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
     public class AptkAmsLocalStoreService : IAptkAmsLocalStoreService
     {
         private readonly IAptkAmsPluginConfiguration _configuration;
-        private readonly IAptkAmsPluginLocalStoreExtensionConfiguration _localStoreConfiguration;
+        private readonly IAptkAmsLocalStorePluginConfiguration _localStoreConfiguration;
         private MobileServiceSQLiteStore _localStore;
         private readonly IMobileServiceClient _client;
         private List<object> _localTableServices;
 
-        public AptkAmsLocalStoreService(IAptkAmsPluginConfiguration configuration, 
-            IAptkAmsPluginLocalStoreExtensionConfiguration localStoreConfiguration, 
+        public AptkAmsLocalStoreService(IAptkAmsPluginConfiguration configuration,
+            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration, 
             IMobileServiceClient client)
         {
             _configuration = configuration;

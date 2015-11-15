@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Api
+namespace Aptk.Plugins.AzureMobileServices.Api
 {
     public class AptkAmsApiService : IAptkAmsApiService
     {

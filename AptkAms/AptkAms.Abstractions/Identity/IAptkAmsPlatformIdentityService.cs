@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Identity
+namespace Aptk.Plugins.AzureMobileServices.Identity
 {
     public interface IAptkAmsPlatformIdentityService
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
+namespace Aptk.Plugins.AzureMobileServices.Data
 {
     public class AptkAmsDataService : IAptkAmsDataService
     {

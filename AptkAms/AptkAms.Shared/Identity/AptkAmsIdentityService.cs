@@ -1,19 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Abstractions;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Identity;
 using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aptk.Plugins.AzureMobileServices.Identity
 {
     public class AptkAmsIdentityService : AptkAmsBaseIdentityService
     {
-        public AptkAmsIdentityService(IAptkAmsPluginConfiguration configuration, IMobileServiceClient client) : base(configuration, client)
-        { }
+        private readonly IAptkAmsPluginConfiguration _configuration;
 
-        public override async Task<MobileServiceUser> LoginAsync(MobileServiceAuthenticationProvider provider, IDictionary<string, string> parameters = null, bool useSingleSignOnIfAvailable = false)
+        public AptkAmsIdentityService(IAptkAmsPluginConfiguration configuration, IMobileServiceClient client) : base(configuration, client)
         {
-            return await Loader.PlatformIdentityInstance.LoginAsync(provider, parameters, useSingleSignOnIfAvailable);
+            _configuration = configuration;
+        }
+
+        public override async Task<MobileServiceUser> LoginAsync(AptkAmsAuthenticationProvider provider, IDictionary<string, string> parameters = null, bool useSingleSignOnIfAvailable = false)
+        {
+            if (provider == AptkAmsAuthenticationProvider.None || provider == AptkAmsAuthenticationProvider.LoginPassword)
+                throw new ArgumentException("AptkAmsAuthenticationProvider must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory");
+
+            var user = await AptkPluginLoader.PlatformIdentityInstance.LoginAsync(provider.ToMobileServiceAuthenticationProvider(), parameters, useSingleSignOnIfAvailable);
+
+            _configuration.CredentialsCacheService?.SaveCredentials(new AptkAmsCredentials(provider, user));
+
+            return user;
         }
     }
 }

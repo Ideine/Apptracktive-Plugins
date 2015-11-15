@@ -3,11 +3,15 @@
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
     /// <summary>
-    /// AptkAms Local Store plugin base configuration
+    /// AptkAms Local Store plugin configuration
     /// </summary>
-    public abstract class AptkAmsPluginLocalStoreExtensionBaseConfiguration : IAptkAmsPluginLocalStoreExtensionConfiguration
+    public class AptkAmsLocalStorePluginConfiguration : IAptkAmsLocalStorePluginConfiguration
     {
-        protected AptkAmsPluginLocalStoreExtensionBaseConfiguration(string databaseFullPath)
+        /// <summary>
+        /// AptkAms Local Store plugin constructor
+        /// </summary>
+        /// <param name="databaseFullPath">Database file full device path</param>
+        public AptkAmsLocalStorePluginConfiguration(string databaseFullPath)
         {
             DatabaseFullPath = databaseFullPath;
         }

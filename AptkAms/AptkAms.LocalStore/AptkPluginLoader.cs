@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Abstractions;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+using Aptk.Plugins.AzureMobileServices.Data;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
-    public static class Loader
+    public static class AptkPluginLoader
     {
         private static readonly Lazy<IAptkAmsLocalStoreService> LazyInstance = new Lazy<IAptkAmsLocalStoreService>(CreateAptkAmsLocalStoreService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
 
         private static IAptkAmsService _pluginInstance;
-        private static IAptkAmsPluginLocalStoreExtensionConfiguration _localStoreConfiguration;
+        private static IAptkAmsLocalStorePluginConfiguration _localStoreConfiguration;
 
         public static void Init(IAptkAmsService pluginInstance,
-            IAptkAmsPluginLocalStoreExtensionConfiguration localStoreConfiguration)
+            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
         {
             _pluginInstance = pluginInstance;
             _localStoreConfiguration = localStoreConfiguration;

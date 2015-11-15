@@ -1,4 +1,4 @@
-﻿namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
+﻿namespace Aptk.Plugins.AzureMobileServices.Data
 {
     /// <summary>
     /// Common data request service

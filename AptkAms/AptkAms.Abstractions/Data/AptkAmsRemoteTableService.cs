@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
+namespace Aptk.Plugins.AzureMobileServices.Data
 {
     public class AptkAmsRemoteTableService<T> : IAptkAmsRemoteTableService<T> where T : ITableData
     {

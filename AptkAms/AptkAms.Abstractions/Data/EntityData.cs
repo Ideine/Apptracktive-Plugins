@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.WindowsAzure.MobileServices;
 
-namespace Aptk.Plugins.AzureMobileServices.Abstractions.Data
+namespace Aptk.Plugins.AzureMobileServices.Data
 {
     public abstract class EntityData : ITableData
     {

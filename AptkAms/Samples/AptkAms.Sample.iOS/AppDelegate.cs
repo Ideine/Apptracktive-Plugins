@@ -1,5 +1,5 @@
-﻿using AptkAms.Sample.Core;
-using AptkAms.Sample.Core.Configuration;
+﻿using Aptk.Plugins.AzureMobileServices;
+using AptkAms.Sample.Core;
 using Foundation;
 using UIKit;
 using Xamarin.Forms;
@@ -16,7 +16,7 @@ namespace AptkAms.Sample.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Forms.Init();
-            Aptk.Plugins.AzureMobileServices.Loader.Init(new AptkAmsPluginConfiguration(), app);
+            AptkPluginLoader.Init(new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly), app);
 
             LoadApplication(new App());
 

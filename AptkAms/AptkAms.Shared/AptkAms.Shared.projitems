@@ -9,7 +9,8 @@
     <Import_RootNamespace>AptkAms.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AptkAmsService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\AptkAmsIdentityService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Loader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AptkPluginLoader.cs" />
   </ItemGroup>
 </Project>

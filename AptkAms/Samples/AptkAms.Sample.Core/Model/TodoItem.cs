@@ -1,4 +1,4 @@
-﻿using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+﻿using Aptk.Plugins.AzureMobileServices.Data;
 
 namespace AptkAms.Sample.Core.Model
 {

@@ -43,11 +43,11 @@
   <ItemGroup>
     <Compile Include="IAptkAmsLocalStoreService.cs" />
     <Compile Include="IAptkAmsLocalTableService.cs" />
-    <Compile Include="Loader.cs" />
-    <Compile Include="AptkAmsPluginLocalStoreExtensionBaseConfiguration.cs" />
+    <Compile Include="AptkPluginLoader.cs" />
+    <Compile Include="AptkAmsLocalStorePluginConfiguration.cs" />
     <Compile Include="AptkAmsLocalTableService.cs" />
     <Compile Include="AptkAmsLocalStoreService.cs" />
-    <Compile Include="IAptkAmsPluginLocalStoreExtensionConfiguration.cs" />
+    <Compile Include="IAptkAmsLocalStorePluginConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

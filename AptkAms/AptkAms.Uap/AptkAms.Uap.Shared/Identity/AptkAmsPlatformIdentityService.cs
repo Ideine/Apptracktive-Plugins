@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Identity;
 using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aptk.Plugins.AzureMobileServices.Identity

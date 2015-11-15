@@ -1,4 +1,4 @@
-﻿using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+﻿using Aptk.Plugins.AzureMobileServices.Data;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore

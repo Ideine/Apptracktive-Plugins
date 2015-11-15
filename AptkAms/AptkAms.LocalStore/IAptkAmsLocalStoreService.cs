@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
+using Aptk.Plugins.AzureMobileServices.Data;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {

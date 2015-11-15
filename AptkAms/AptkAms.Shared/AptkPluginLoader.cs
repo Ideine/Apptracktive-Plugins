@@ -1,8 +1,6 @@
 ﻿using System;
-using Aptk.Plugins.AzureMobileServices.Abstractions;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Api;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Data;
-using Aptk.Plugins.AzureMobileServices.Abstractions.Identity;
+using Aptk.Plugins.AzureMobileServices.Api;
+using Aptk.Plugins.AzureMobileServices.Data;
 using Aptk.Plugins.AzureMobileServices.Identity;
 using Microsoft.WindowsAzure.MobileServices;
 
@@ -17,7 +15,7 @@ using Android.Content;
 
 namespace Aptk.Plugins.AzureMobileServices
 {
-    public static class Loader
+    public static class AptkPluginLoader
     {
         private static readonly Lazy<IAptkAmsService> LazyInstance = new Lazy<IAptkAmsService>(CreateAptkAmsService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
         private static readonly Lazy<IAptkAmsApiService> LazyApiInstance = new Lazy<IAptkAmsApiService>(CreateAptkAmsApiService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
@@ -69,7 +67,12 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IMobileServiceClient CreateMobileServiceClient()
         {
-            return new MobileServiceClient(_configuration.AmsAppUrl, _configuration.AmsAppKey);
+            var client = new MobileServiceClient(_configuration.AmsAppUrl, _configuration.AmsAppKey, _configuration.Handlers);
+
+            if (_configuration.SerializerSettings != null)
+                client.SerializerSettings = _configuration.SerializerSettings;
+
+            return client;
         }
         #endregion
 
@@ -81,6 +84,10 @@ namespace Aptk.Plugins.AzureMobileServices
         {
             get
             {
+                if (_client == null)
+                {
+                    throw new ArgumentException("You must call Init method before using it.");
+                }
                 var instance = LazyInstance.Value;
                 if (instance == null)
                 {
@@ -92,7 +99,7 @@ namespace Aptk.Plugins.AzureMobileServices
 
         private static IAptkAmsService CreateAptkAmsService()
         {
-            return new AptkAmsService(_configuration, _client, DataInstance, IdentityInstance, ApiInstance);
+            return new AptkAmsService(_configuration, _client);
         }
         #endregion
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -13,6 +14,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.Identity;
+using AptkAms.Sample.Core;
+using AptkAms.Sample.Core.Helpers;
+using AptkAms.Sample.Core.Services;
 using Xamarin.Forms;
 using Application = Windows.UI.Xaml.Application;
 using Frame = Windows.UI.Xaml.Controls.Frame;
@@ -62,6 +68,8 @@ namespace AptkAms.Sample.Uwp
 
                 Forms.Init(e);
 
+                InitAptkAmsPlugin();
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: chargez l'état de l'application précédemment suspendue
@@ -104,6 +112,23 @@ namespace AptkAms.Sample.Uwp
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: enregistrez l'état de l'application et arrêtez toute activité en arrière-plan
             deferral.Complete();
+        }
+
+        private void InitAptkAmsPlugin()
+        {
+            var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
+
+            // [Optional] Handle expired token to automaticaly ask for login if needed
+            var identityHandler = new AptkAmsIdentityHandler(configuration, AptkAmsAuthenticationProvider.Facebook);
+            configuration.Handlers = new HttpMessageHandler[] { identityHandler };
+
+            // [Optional] Handle credentials local caching
+            configuration.CredentialsCacheService = new AptkAmsCredentialCacheService();
+
+            AptkPluginLoader.Init(configuration);
+
+            // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
+            identityHandler.AptkAmsService = AptkPluginLoader.Instance;
         }
     }
 }

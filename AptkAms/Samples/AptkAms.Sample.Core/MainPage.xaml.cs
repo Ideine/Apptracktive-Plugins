@@ -1,4 +1,6 @@
-﻿using Aptk.Plugins.AzureMobileServices;
+﻿using System.Threading;
+using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
@@ -12,13 +14,14 @@ namespace AptkAms.Sample.Core
         {
             InitializeComponent();
 
-            _aptkAmsService = AptkPluginLoader.Instance;
+            _aptkAmsService = AptkAmsPluginLoader.Instance;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
+            await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
             ToDoItems.ItemsSource = await _aptkAmsService.Data.RemoteTable<TodoItem>().ToListAsync();
         }
     }

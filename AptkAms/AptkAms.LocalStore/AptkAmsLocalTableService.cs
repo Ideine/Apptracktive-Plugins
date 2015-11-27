@@ -200,13 +200,68 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
             await _localTable.DeleteAsync(instance);
         }
 
-        public async Task PullAsync<U>(string queryId, IMobileServiceTableQuery<U> query, bool pushOtherTables,
-            CancellationToken cancellationToken)
+        public async Task PullAsync<U>(string queryId, IMobileServiceTableQuery<U> query, bool pushOtherTables, CancellationToken cancellationToken)
         {
             if (!await InitializeAsync())
                 throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
 
             await _localTable.PullAsync(queryId, query, pushOtherTables, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(string queryId, bool pushOtherTables, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(queryId, _localTable.CreateQuery(), pushOtherTables, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(string queryId, IMobileServiceTableQuery<U> query, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(queryId, query, false, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(IMobileServiceTableQuery<U> query, bool pushOtherTables, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(typeof(T).Name, query, pushOtherTables, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(string queryId, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(queryId, _localTable.CreateQuery(), false, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(IMobileServiceTableQuery<U> query, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(typeof(T).Name, query, false, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(bool pushOtherTables, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(typeof(T).Name, _localTable.CreateQuery(), pushOtherTables, cancellationToken);
+        }
+
+        public async Task PullAsync<U>(CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to pull data. Initialization failed.", null, null);
+
+            await _localTable.PullAsync(typeof(T).Name, _localTable.CreateQuery(), false, cancellationToken);
         }
 
         public async Task PurgeAsync<U>(string queryId, IMobileServiceTableQuery<U> query, CancellationToken cancellationToken)
@@ -215,6 +270,30 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
                 throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
 
             await _localTable.PurgeAsync(queryId, query, cancellationToken);
+        }
+
+        public async Task PurgeAsync<U>(string queryId, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
+
+            await _localTable.PurgeAsync(queryId, _localTable.CreateQuery(), cancellationToken);
+        }
+
+        public async Task PurgeAsync<U>(IMobileServiceTableQuery<U> query, CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
+
+            await _localTable.PurgeAsync(typeof(T).Name, query, cancellationToken);
+        }
+
+        public async Task PurgeAsync<U>(CancellationToken cancellationToken)
+        {
+            if (!await InitializeAsync())
+                throw new MobileServiceInvalidOperationException("Unable to purge data. Initialization failed.", null, null);
+
+            await _localTable.PurgeAsync(typeof(T).Name, _localTable.CreateQuery(), cancellationToken);
         }
 
         async Task<JObject> IMobileServiceSyncTable.LookupAsync(string id)

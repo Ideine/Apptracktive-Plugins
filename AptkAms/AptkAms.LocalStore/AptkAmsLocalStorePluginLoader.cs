@@ -4,7 +4,7 @@ using Aptk.Plugins.AzureMobileServices.Data;
 
 namespace Aptk.Plugins.AzureMobileServices.LocalStore
 {
-    public static class AptkPluginLoader
+    public static class AptkAmsLocalStorePluginLoader
     {
         private static readonly Lazy<IAptkAmsLocalStoreService> LazyInstance = new Lazy<IAptkAmsLocalStoreService>(CreateAptkAmsLocalStoreService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
 

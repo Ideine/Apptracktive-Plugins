@@ -20,10 +20,10 @@ namespace Aptk.Plugins.AzureMobileServices
 
         public IMobileServiceClient Client { get; }
 
-        public IAptkAmsDataService Data => AptkPluginLoader.DataInstance;
+        public IAptkAmsDataService Data => AptkAmsPluginLoader.DataInstance;
 
-        public IAptkAmsIdentityService Identity => AptkPluginLoader.IdentityInstance;
+        public IAptkAmsIdentityService Identity => AptkAmsPluginLoader.IdentityInstance;
 
-        public IAptkAmsApiService Api => AptkPluginLoader.ApiInstance;
+        public IAptkAmsApiService Api => AptkAmsPluginLoader.ApiInstance;
     }
 }

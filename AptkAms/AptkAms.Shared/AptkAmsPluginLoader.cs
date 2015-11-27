@@ -15,7 +15,7 @@ using Android.Content;
 
 namespace Aptk.Plugins.AzureMobileServices
 {
-    public static class AptkPluginLoader
+    public static class AptkAmsPluginLoader
     {
         private static readonly Lazy<IAptkAmsService> LazyInstance = new Lazy<IAptkAmsService>(CreateAptkAmsService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
         private static readonly Lazy<IAptkAmsApiService> LazyApiInstance = new Lazy<IAptkAmsApiService>(CreateAptkAmsApiService, System.Threading.LazyThreadSafetyMode.PublicationOnly);

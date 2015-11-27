@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Aptk.Plugins.AzureMobileServices;
 using Aptk.Plugins.AzureMobileServices.Identity;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core;
 using AptkAms.Sample.Core.Helpers;
 using AptkAms.Sample.Core.Services;
@@ -125,10 +126,12 @@ namespace AptkAms.Sample.Uwp
             // [Optional] Handle credentials local caching
             configuration.CredentialsCacheService = new AptkAmsCredentialCacheService();
 
-            AptkPluginLoader.Init(configuration);
+            AptkAmsPluginLoader.Init(configuration);
 
             // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
-            identityHandler.AptkAmsService = AptkPluginLoader.Instance;
+            identityHandler.AptkAmsService = AptkAmsPluginLoader.Instance;
+
+            AptkAmsLocalStorePluginLoader.Init(AptkAmsPluginLoader.Instance, new AptkAmsLocalStorePluginConfiguration(Windows.Storage.ApplicationData.Current.LocalFolder.Path));
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using Aptk.Plugins.AzureMobileServices;
-using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
@@ -21,7 +20,7 @@ namespace AptkAms.Sample.Core
         {
             base.OnAppearing();
 
-            await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
+            //await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
             ToDoItems.ItemsSource = await _aptkAmsService.Data.RemoteTable<TodoItem>().ToListAsync();
         }
     }

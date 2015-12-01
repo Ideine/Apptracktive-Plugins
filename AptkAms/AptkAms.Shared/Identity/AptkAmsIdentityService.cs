@@ -19,7 +19,7 @@ namespace Aptk.Plugins.AzureMobileServices.Identity
             if (provider == AptkAmsAuthenticationProvider.None || provider == AptkAmsAuthenticationProvider.LoginPassword)
                 throw new ArgumentException("AptkAmsAuthenticationProvider must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory");
 
-            var user = await AptkPluginLoader.PlatformIdentityInstance.LoginAsync(provider.ToMobileServiceAuthenticationProvider(), parameters, useSingleSignOnIfAvailable);
+            var user = await AptkAmsPluginLoader.PlatformIdentityInstance.LoginAsync(provider.ToMobileServiceAuthenticationProvider(), parameters, useSingleSignOnIfAvailable);
 
             _configuration.CredentialsCacheService?.SaveCredentials(new AptkAmsCredentials(provider, user));
 

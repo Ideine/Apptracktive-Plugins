@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices")]
-[assembly: AssemblyDescription("Windows Universal Platform plugin for Azure Mobile Services")]
+[assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.Uwp")]
+[assembly: AssemblyDescription("Azure Mobile Services plugin for Windows Universal Platform")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Apptracktive")]
-[assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices")]
+[assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.Uwp")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

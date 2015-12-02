@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.iOSUnified")]
-[assembly: AssemblyDescription("Xamarin iOS Unified plugin for Azure Mobile Services")]
+[assembly: AssemblyDescription("Azure Mobile Services plugin for Xamarin iOS Unified")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Apptracktive")]
 [assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.iOSUnified")]

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Abstractions", "AptkAms.Abstractions\AptkAms.Abstractions.csproj", "{A6FCEF44-D2BA-42C7-B3CB-13667BCD7B54}"
 EndProject
@@ -19,13 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.LocalStore", "AptkA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MvvmCross", "MvvmCross", "{81D5428D-B40E-4E82-85F2-B2A52883F077}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.Uap", "AptkAms.Uap", "{934B405D-E514-43D2-A304-46C120B8F3FA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.WinRT", "AptkAms.WinRT", "{934B405D-E514-43D2-A304-46C120B8F3FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Uap.Windows81", "AptkAms.Uap\AptkAms.Uap.Windows81\AptkAms.Uap.Windows81.csproj", "{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.WinRT.Windows81", "AptkAms.WinRT\AptkAms.WinRT.Windows81\AptkAms.WinRT.Windows81.csproj", "{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Uap.WindowsPhone81", "AptkAms.Uap\AptkAms.Uap.WindowsPhone81\AptkAms.Uap.WindowsPhone81.csproj", "{7169373F-0B82-4E5D-9129-7CC3065B90FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.WinRT.WindowsPhone81", "AptkAms.WinRT\AptkAms.WinRT.WindowsPhone81\AptkAms.WinRT.WindowsPhone81.csproj", "{7169373F-0B82-4E5D-9129-7CC3065B90FA}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AptkAms.Uap.Shared", "AptkAms.Uap\AptkAms.Uap.Shared\AptkAms.Uap.Shared.shproj", "{F1FBD5F6-E337-4254-B116-2BB99F83970C}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AptkAms.WinRT.Shared", "AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.shproj", "{F1FBD5F6-E337-4254-B116-2BB99F83970C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{D9E5CE7D-E1AD-4AB6-B7FA-7F3DD5609F32}"
 EndProject
@@ -39,13 +39,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.Uwp", "Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.WinPhone8", "Samples\AptkAms.Sample.WinPhone8\AptkAms.Sample.WinPhone8.csproj", "{3F32FDB9-84F8-4BAC-B5D4-B33ECFD9AEEE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.Sample.Uap", "AptkAms.Sample.Uap", "{D487198C-6E37-43E2-8943-C85708579D8E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.Sample.WinRT", "AptkAms.Sample.WinRT", "{D487198C-6E37-43E2-8943-C85708579D8E}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AptkAms.Sample.Uap.Shared", "Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.Shared\AptkAms.Sample.Uap.Shared.shproj", "{A3AA3A5B-E084-4856-80C7-9F7A0AD27FE2}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AptkAms.Sample.WinRT.Shared", "Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.Shared\AptkAms.Sample.WinRT.Shared.shproj", "{A3AA3A5B-E084-4856-80C7-9F7A0AD27FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.Uap.Windows", "Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.Windows\AptkAms.Sample.Uap.Windows.csproj", "{25A03D8F-2995-4EF6-B12F-08AAE7C381ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.WinRT.Windows", "Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.Windows\AptkAms.Sample.WinRT.Windows.csproj", "{25A03D8F-2995-4EF6-B12F-08AAE7C381ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.Uap.WindowsPhone", "Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.WindowsPhone\AptkAms.Sample.Uap.WindowsPhone.csproj", "{25797D3D-D966-4586-81BD-02AD62E64D25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.WinRT.WindowsPhone", "Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.WindowsPhone\AptkAms.Sample.WinRT.WindowsPhone.csproj", "{25797D3D-D966-4586-81BD-02AD62E64D25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Sample.Backend", "Samples\AptkAms.Sample.Backend\AptkAms.Sample.Backend.csproj", "{E7DE256A-267F-4D11-84D4-820AAB020941}"
 EndProject
@@ -57,14 +57,14 @@ Global
 		AptkAms.Shared\AptkAms.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{3bc9b55f-f2f3-4cc5-932b-088ef9acb768}*SharedItemsImports = 13
-		Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.Shared\AptkAms.Sample.Uap.Shared.projitems*{a3aa3a5b-e084-4856-80c7-9f7a0ad27fe2}*SharedItemsImports = 13
-		Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.Shared\AptkAms.Sample.Uap.Shared.projitems*{25797d3d-d966-4586-81bd-02ad62e64d25}*SharedItemsImports = 4
-		Samples\AptkAms.Sample.Uap\AptkAms.Sample.Uap.Shared\AptkAms.Sample.Uap.Shared.projitems*{25a03d8f-2995-4ef6-b12f-08aae7c381ed}*SharedItemsImports = 4
-		AptkAms.Uap\AptkAms.Uap.Shared\AptkAms.Uap.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.Shared\AptkAms.Sample.WinRT.Shared.projitems*{a3aa3a5b-e084-4856-80c7-9f7a0ad27fe2}*SharedItemsImports = 13
+		Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.Shared\AptkAms.Sample.WinRT.Shared.projitems*{25797d3d-d966-4586-81bd-02ad62e64d25}*SharedItemsImports = 4
+		Samples\AptkAms.Sample.WinRT\AptkAms.Sample.WinRT.Shared\AptkAms.Sample.WinRT.Shared.projitems*{25a03d8f-2995-4ef6-b12f-08aae7c381ed}*SharedItemsImports = 4
+		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
-		AptkAms.Uap\AptkAms.Uap.Shared\AptkAms.Uap.Shared.projitems*{f1fbd5f6-e337-4254-b116-2bb99f83970c}*SharedItemsImports = 13
+		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{f1fbd5f6-e337-4254-b116-2bb99f83970c}*SharedItemsImports = 13
 		AptkAms.Shared\AptkAms.Shared.projitems*{4ee4f673-d674-41ff-b245-dd1b4f0e8cb4}*SharedItemsImports = 4
-		AptkAms.Uap\AptkAms.Uap.Shared\AptkAms.Uap.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{4d073c1d-c46c-4b18-92cc-d3729e11dc88}*SharedItemsImports = 4
 	EndGlobalSection

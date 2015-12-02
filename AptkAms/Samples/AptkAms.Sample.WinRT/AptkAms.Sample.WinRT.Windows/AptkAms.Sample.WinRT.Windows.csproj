@@ -8,15 +8,15 @@
     <ProjectGuid>{25A03D8F-2995-4EF6-B12F-08AAE7C381ED}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AptkAms.Sample.Uap</RootNamespace>
-    <AssemblyName>AptkAms.Sample.Uap.Windows</AssemblyName>
+    <RootNamespace>AptkAms.Sample.WinRT</RootNamespace>
+    <AssemblyName>AptkAms.Sample.WinRT.Windows</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <SynthesizeLinkMetadata>true</SynthesizeLinkMetadata>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>AptkAms.Sample.Uap.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>AptkAms.Sample.WinRT.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -115,9 +115,9 @@
       <Project>{6e8df24c-3029-4227-9c81-404bc5c18889}</Project>
       <Name>AptkAms.LocalStore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\AptkAms.Uap\AptkAms.Uap.Windows81\AptkAms.Uap.Windows81.csproj">
+    <ProjectReference Include="..\..\..\AptkAms.WinRT\AptkAms.WinRT.Windows81\AptkAms.WinRT.Windows81.csproj">
       <Project>{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}</Project>
-      <Name>AptkAms.Uap.Windows81</Name>
+      <Name>AptkAms.WinRT.Windows81</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\AptkAms.Sample.Core\AptkAms.Sample.Core.csproj">
       <Project>{cd8506e7-6212-477c-89ab-8ae2eeea1776}</Project>
@@ -134,7 +134,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="AptkAms.Sample.Uap.Windows_TemporaryKey.pfx" />
+    <None Include="AptkAms.Sample.WinRT.Windows_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +207,7 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
-  <Import Project="..\AptkAms.Sample.Uap.Shared\AptkAms.Sample.Uap.Shared.projitems" Label="Shared" />
+  <Import Project="..\AptkAms.Sample.WinRT.Shared\AptkAms.Sample.WinRT.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

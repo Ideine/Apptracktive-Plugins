@@ -28,7 +28,7 @@ using NavigationEventArgs = Windows.UI.Xaml.Navigation.NavigationEventArgs;
 
 // Pour plus d'informations sur le modèle Application vide, consultez la page http://go.microsoft.com/fwlink/?LinkId=234227
 
-namespace AptkAms.Sample.Uap
+namespace AptkAms.Sample.WinRT
 {
     /// <summary>
     /// Fournit un comportement spécifique à l'application afin de compléter la classe Application par défaut.

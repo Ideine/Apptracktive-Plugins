@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Aptk.Plugins.AzureMobileServices</RootNamespace>
-    <AssemblyName>Aptk.Plugins.AzureMobileServices</AssemblyName>
+    <AssemblyName>Aptk.Plugins.AzureMobileServices.Uwp</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>

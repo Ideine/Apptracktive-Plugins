@@ -164,9 +164,9 @@
       <Project>{6e8df24c-3029-4227-9c81-404bc5c18889}</Project>
       <Name>AptkAms.LocalStore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\AptkAms.WindowsPhone8\AptkAms.WindowsPhone8.csproj">
+    <ProjectReference Include="..\..\AptkAms.WindowsPhone8\AptkAms.WindowsPhone.csproj">
       <Project>{5876144b-47dd-4c4e-b421-bc03f191b996}</Project>
-      <Name>AptkAms.WindowsPhone8</Name>
+      <Name>AptkAms.WindowsPhone</Name>
     </ProjectReference>
     <ProjectReference Include="..\AptkAms.Sample.Core\AptkAms.Sample.Core.csproj">
       <Project>{cd8506e7-6212-477c-89ab-8ae2eeea1776}</Project>

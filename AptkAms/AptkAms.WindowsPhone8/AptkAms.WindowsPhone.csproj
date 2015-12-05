@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Aptk.Plugins.AzureMobileServices</RootNamespace>
-    <AssemblyName>Aptk.Plugins.AzureMobileServices</AssemblyName>
+    <AssemblyName>Aptk.Plugins.AzureMobileServices.WindowsPhone</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -41,7 +41,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>Bin\Release\Aptk.Plugins.AzureMobileServices.xml</DocumentationFile>
+    <DocumentationFile>Bin\Release\Aptk.Plugins.AzureMobileServices.WindowsPhone.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>

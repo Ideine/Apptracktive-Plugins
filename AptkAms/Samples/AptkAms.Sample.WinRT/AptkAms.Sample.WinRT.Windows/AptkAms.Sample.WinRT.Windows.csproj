@@ -115,9 +115,9 @@
       <Project>{6e8df24c-3029-4227-9c81-404bc5c18889}</Project>
       <Name>AptkAms.LocalStore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\AptkAms.WinRT\AptkAms.WinRT.Windows81\AptkAms.WinRT.Windows81.csproj">
+    <ProjectReference Include="..\..\..\AptkAms.WinRT\AptkAms.WinRT.Windows81\AptkAms.WinRT.Windows.csproj">
       <Project>{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}</Project>
-      <Name>AptkAms.WinRT.Windows81</Name>
+      <Name>AptkAms.WinRT.Windows</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\AptkAms.Sample.Core\AptkAms.Sample.Core.csproj">
       <Project>{cd8506e7-6212-477c-89ab-8ae2eeea1776}</Project>

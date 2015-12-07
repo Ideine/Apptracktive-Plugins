@@ -6,7 +6,7 @@
     <SharedGUID>f1fbd5f6-e337-4254-b116-2bb99f83970c</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>AptkAms.WinRT.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Aptk.Plugins.AzureMobileServices</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Identity\AptkAmsPlatformIdentityService.cs" />

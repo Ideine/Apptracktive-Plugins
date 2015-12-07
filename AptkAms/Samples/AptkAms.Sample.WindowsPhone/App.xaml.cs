@@ -250,7 +250,7 @@ namespace AptkAms.Sample.WinPhone8
             // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
             identityHandler.AptkAmsService = AptkAmsPluginLoader.Instance;
 
-            AptkAmsLocalStorePluginLoader.Init(AptkAmsPluginLoader.Instance, new AptkAmsLocalStorePluginConfiguration(Windows.Storage.ApplicationData.Current.LocalFolder.Path));
+            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance));
         }
     }
 }

@@ -45,7 +45,7 @@ namespace AptkAms.Sample.iOS
             // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
             identityHandler.AptkAmsService = AptkAmsPluginLoader.Instance;
 
-            AptkAmsLocalStorePluginLoader.Init(AptkAmsPluginLoader.Instance, new AptkAmsLocalStorePluginConfiguration(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
+            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance));
         }
     }
 }

@@ -3,14 +3,13 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>3bc9b55f-f2f3-4cc5-932b-088ef9acb768</SharedGUID>
+    <SharedGUID>fbf47f8c-aa51-4a84-b1b4-6d17caefcd66</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Aptk.Plugins.AzureMobileServices</Import_RootNamespace>
+    <Import_RootNamespace>Aptk.Plugins.AzureMobileServices.LocalStore.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AptkAmsService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Identity\AptkAmsIdentityService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AptkAmsPluginLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AptkAmsLocalStorePluginLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AptkAmsLocalStoreService.cs" />
   </ItemGroup>
 </Project>

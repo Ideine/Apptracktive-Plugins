@@ -10,16 +10,21 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         /// <summary>
         /// AptkAms Local Store plugin constructor
         /// </summary>
-        /// <param name="databaseFullPath">Database file full device path</param>
-        public AptkAmsLocalStorePluginConfiguration(string databaseFullPath)
+        /// <param name="aptkAmsPluginInstance">Instance of AptkAmsService</param>
+        public AptkAmsLocalStorePluginConfiguration(IAptkAmsService aptkAmsPluginInstance)
         {
-            DatabaseFullPath = databaseFullPath;
+            AptkAmsPluginInstance = aptkAmsPluginInstance;
         }
+
+        /// <summary>
+        /// Instance of AptkAmsService
+        /// </summary>
+        public IAptkAmsService AptkAmsPluginInstance { get; }
 
         /// <summary>
         /// Database file full device path
         /// </summary>
-        public string DatabaseFullPath { get; set; }
+        public string DatabaseShortPath { get; set; }
 
         /// <summary>
         /// Database file name with db extension

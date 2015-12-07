@@ -1,20 +1,18 @@
-﻿using System.Resources;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.LocalStore")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.LocalStore.WinRT.WindowsPhone")]
+[assembly: AssemblyDescription("Local store extension for Azure Mobile Services plugin")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.LocalStore")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Apptracktive")]
+[assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.LocalStore.WinRT.WindowsPhone")]
+[assembly: AssemblyCopyright("")]
+[assembly: AssemblyTrademark("Apptracktive")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("fr")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
@@ -23,8 +21,9 @@ using System.Runtime.InteropServices;
 //      Numéro de build
 //      Révision
 //
-// Vous pouvez spécifier toutes les valeurs ou utiliser par défaut les numéros de build et de version 
+// Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut 
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: ComVisible(false)]

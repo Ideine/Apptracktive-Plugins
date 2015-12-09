@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Aptk.Plugins.AzureMobileServices</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Aptk.Plugins.AzureMobileServices.iOS</AssemblyName>
+    <AssemblyName>Aptk.Plugins.AzureMobileServices</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DocumentationFile>bin\iPhone\Release\Aptk.Plugins.AzureMobileServices.iOS.xml</DocumentationFile>
+    <DocumentationFile>bin\iPhone\Release\Aptk.Plugins.AzureMobileServices.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Identity\AptkAmsPlatformIdentityService.cs" />

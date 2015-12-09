@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Aptk.Plugins.AzureMobileServices</RootNamespace>
-    <AssemblyName>Aptk.Plugins.AzureMobileServices.WinRT.Windows</AssemblyName>
+    <AssemblyName>Aptk.Plugins.AzureMobileServices</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -35,7 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Aptk.Plugins.AzureMobileServices.WinRT.Windows.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Aptk.Plugins.AzureMobileServices.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

@@ -7,20 +7,17 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
     public static class AptkAmsLocalStorePluginLoader
     {
         private static readonly Lazy<IAptkAmsLocalStoreService> LazyInstance = new Lazy<IAptkAmsLocalStoreService>(CreateAptkAmsLocalStoreService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
-
-        private static IAptkAmsService _pluginInstance;
+        
         private static IAptkAmsLocalStorePluginConfiguration _localStoreConfiguration;
 
-        public static void Init(IAptkAmsService pluginInstance,
-            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
+        public static void Init(IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
         {
-            _pluginInstance = pluginInstance;
             _localStoreConfiguration = localStoreConfiguration;
         }
 
         private static IAptkAmsLocalStoreService CreateAptkAmsLocalStoreService()
         {
-            return new AptkAmsLocalStoreService(_pluginInstance.Configuration, _localStoreConfiguration, _pluginInstance.Client);
+            return new AptkAmsLocalStoreService(_localStoreConfiguration);
         }
 
         /// <summary>

@@ -8,6 +8,11 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
     public interface IAptkAmsLocalStorePluginConfiguration
     {
         /// <summary>
+        /// AptkAmsService instance
+        /// </summary>
+        IAptkAmsService AptkAmsServiceInstance { get; set; }
+
+        /// <summary>
         /// Database file full device path
         /// </summary>
         string DatabaseFullPath { get; set; }

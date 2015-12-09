@@ -6,13 +6,13 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de 
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.LocalStore")]
-[assembly: AssemblyDescription("Local store extension for Azure Mobile Services plugin")]
+[assembly: AssemblyTitle("AptkAms.Test.Core")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Apptracktive")]
-[assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.LocalStore")]
-[assembly: AssemblyCopyright("")]
-[assembly: AssemblyTrademark("Apptracktive")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("AptkAms.Test.Core")]
+[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("fr")]
 

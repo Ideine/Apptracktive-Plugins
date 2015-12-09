@@ -21,13 +21,12 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private readonly IMobileServiceClient _client;
         private List<object> _localTableServices;
 
-        public AptkAmsLocalStoreService(IAptkAmsPluginConfiguration configuration,
-            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration, 
-            IMobileServiceClient client)
+        public AptkAmsLocalStoreService(IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
         {
-            _configuration = configuration;
             _localStoreConfiguration = localStoreConfiguration;
-            _client = client;
+            _configuration = localStoreConfiguration.AptkAmsServiceInstance.Configuration;
+            _client = localStoreConfiguration.AptkAmsServiceInstance.Client;
+
             InitializationTask = InitializeAsync();
             Task.Run(async () => await InitializationTask);
         }

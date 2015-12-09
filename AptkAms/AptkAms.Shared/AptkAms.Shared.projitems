@@ -6,7 +6,7 @@
     <SharedGUID>3bc9b55f-f2f3-4cc5-932b-088ef9acb768</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>AptkAms.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Aptk.Plugins.AzureMobileServices</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AptkAmsService.cs" />

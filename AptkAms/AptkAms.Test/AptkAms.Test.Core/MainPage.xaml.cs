@@ -117,7 +117,7 @@ namespace AptkAms.Test.Core
 
         public async void OnLog(object sender, EventArgs e)
         {
-            if (_aptkAmsService.Identity.CurrentUser == null)
+            if (!await _aptkAmsService.Identity.EnsureLoggedInAsync(false))
             {
                 await _aptkAmsService.Identity.LoginAsync(AptkAmsAuthenticationProvider.Facebook);
             }

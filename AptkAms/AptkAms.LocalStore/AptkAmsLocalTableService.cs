@@ -18,10 +18,11 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private IMobileServiceSyncTable<T> _localTable;
 
         public AptkAmsLocalTableService(IAptkAmsLocalStorePluginConfiguration localStoreConfiguration, 
+            IMobileServiceClient client, 
             IAptkAmsLocalStoreService localStoreService)
         {
             _localStoreConfiguration = localStoreConfiguration;
-            _client = localStoreConfiguration.AptkAmsPluginInstance.Client;
+            _client = client;
             _localStoreService = localStoreService;
         }
 

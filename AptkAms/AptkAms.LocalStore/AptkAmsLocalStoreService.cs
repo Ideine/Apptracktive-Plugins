@@ -21,11 +21,13 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         private readonly IMobileServiceClient _client;
         private List<object> _localTableServices;
 
-        public AptkAmsLocalStoreService(IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
+        public AptkAmsLocalStoreService(IAptkAmsPluginConfiguration configuration,
+            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration, 
+            IMobileServiceClient client)
         {
+            _configuration = configuration;
             _localStoreConfiguration = localStoreConfiguration;
-            _configuration = localStoreConfiguration.AptkAmsPluginInstance.Configuration;
-            _client = localStoreConfiguration.AptkAmsPluginInstance.Client;
+            _client = client;
             InitializationTask = InitializeAsync();
             Task.Run(async () => await InitializationTask);
         }
@@ -39,7 +41,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
                 _localTableServices = new List<object>();
 
                 // Init local store
-                var fullPath = AptkAmsLocalStorePluginLoader.GetDatabaseFullPath();
+                var fullPath = Path.Combine(_localStoreConfiguration.DatabaseFullPath, _localStoreConfiguration.DatabaseFileName);
                 try
                 {
                     _localStore = new MobileServiceSQLiteStore(fullPath);
@@ -94,7 +96,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
             var genericLocalTable = _localTableServices.FirstOrDefault(t => t is AptkAmsLocalTableService<T>);
             if (genericLocalTable == null)
             {
-                var localTable = new AptkAmsLocalTableService<T>(_localStoreConfiguration, this);
+                var localTable = new AptkAmsLocalTableService<T>(_localStoreConfiguration, _client, this);
                 genericLocalTable = localTable;
                 _localTableServices.Add(localTable);
             }

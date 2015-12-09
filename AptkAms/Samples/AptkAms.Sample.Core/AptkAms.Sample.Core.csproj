@@ -41,12 +41,8 @@
       <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
       <Name>AptkAms.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\AptkAms.LocalStore\AptkAms.LocalStore.Abstractions\AptkAms.LocalStore.Abstractions.csproj">
-      <Project>{55863758-44f5-4d40-9928-59edc542d740}</Project>
-      <Name>AptkAms.LocalStore.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\AptkAms.LocalStore\AptkAms.LocalStore\AptkAms.LocalStore.csproj">
-      <Project>{7d5c3b77-d1aa-4b86-9086-7fdd5023db62}</Project>
+    <ProjectReference Include="..\..\AptkAms.LocalStore\AptkAms.LocalStore.csproj">
+      <Project>{6e8df24c-3029-4227-9c81-404bc5c18889}</Project>
       <Name>AptkAms.LocalStore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\AptkAms\AptkAms.csproj">

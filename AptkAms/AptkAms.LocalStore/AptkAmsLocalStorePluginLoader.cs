@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
 using Aptk.Plugins.AzureMobileServices.Data;
 
@@ -8,17 +7,20 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
     public static class AptkAmsLocalStorePluginLoader
     {
         private static readonly Lazy<IAptkAmsLocalStoreService> LazyInstance = new Lazy<IAptkAmsLocalStoreService>(CreateAptkAmsLocalStoreService, System.Threading.LazyThreadSafetyMode.PublicationOnly);
-        
+
+        private static IAptkAmsService _pluginInstance;
         private static IAptkAmsLocalStorePluginConfiguration _localStoreConfiguration;
 
-        public static void Init(IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
+        public static void Init(IAptkAmsService pluginInstance,
+            IAptkAmsLocalStorePluginConfiguration localStoreConfiguration)
         {
+            _pluginInstance = pluginInstance;
             _localStoreConfiguration = localStoreConfiguration;
         }
 
         private static IAptkAmsLocalStoreService CreateAptkAmsLocalStoreService()
         {
-            return new AptkAmsLocalStoreService(_localStoreConfiguration);
+            return new AptkAmsLocalStoreService(_pluginInstance.Configuration, _localStoreConfiguration, _pluginInstance.Client);
         }
 
         /// <summary>
@@ -61,26 +63,6 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
         /// Local pending changes waiting for push to remote Azure tables
         /// </summary>
         public static long PendingChanges(this IAptkAmsDataService dataService) => Instance.PendingOperations;
-
-        /// <summary>
-        /// Get database full path for a specific platform
-        /// </summary>
-        /// <returns>Database full path</returns>
-        internal static string GetDatabaseFullPath()
-        {
-#if PORTABLE
-            var deviceBasePath = string.Empty;
-#elif __ANDROID__
-            var deviceBasePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-#elif __IOS__
-            var deviceBasePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-#else
-            var deviceBasePath = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
-#endif
-            return string.IsNullOrEmpty(_localStoreConfiguration.DatabaseShortPath) ?
-                Path.Combine(deviceBasePath, _localStoreConfiguration.DatabaseFileName) :
-                Path.Combine(deviceBasePath, _localStoreConfiguration.DatabaseShortPath, _localStoreConfiguration.DatabaseFileName);
-        }
 
     }
 }

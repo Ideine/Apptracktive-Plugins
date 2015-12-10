@@ -5,11 +5,11 @@ using System.Reflection;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.Abstractions")]
-[assembly: AssemblyDescription("Xamarin & Windows plugin abstractions for Azure Mobile Services")]
+[assembly: AssemblyDescription("Azure Mobile Services Plugin abstractions for Xamarin and Windows")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Apptracktive")]
 [assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.Abstractions")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © 2015 Apptracktive")]
 [assembly: AssemblyTrademark("Apptracktive")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Azure Mobile Services Plugin for Xamarin and Windows")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Apptracktive")]
 [assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2015 Apptracktive")]
+[assembly: AssemblyTrademark("Apptracktive")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("fr")]
 

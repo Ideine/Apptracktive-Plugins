@@ -6,11 +6,11 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Aptk.Plugins.AzureMobileServices.WindowsPhone")]
-[assembly: AssemblyDescription("Azure Mobile Services plugin for Windows Phone 8")]
+[assembly: AssemblyDescription("Azure Mobile Services Plugin for Windows Phone 8")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Apptracktive")]
 [assembly: AssemblyProduct("Aptk.Plugins.AzureMobileServices.WindowsPhone")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © 2015 Apptracktive")]
 [assembly: AssemblyTrademark("Apptracktive")]
 [assembly: AssemblyCulture("")]
 

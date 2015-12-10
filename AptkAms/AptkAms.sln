@@ -33,6 +33,53 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Test.Core", "AptkAm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.Test.iOS", "AptkAms.Test\AptkAms.Test.iOS\AptkAms.Test.iOS.csproj", "{3AA75D84-F560-4885-847B-90C36C5FF96F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuspec", "Nuspec", "{8901828B-066D-4E75-8D1B-CE365CB9AF27}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\AptkAms.nuspec = Nuspec\AptkAms.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreContent", "CoreContent", "{0A7CC97B-FD26-4125-97DF-F44B7E034469}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{BCE040BE-86C0-48C3-80A6-97AC179EA1FC}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\CoreContent\ToDo-AptkAms\Core_Setup.txt = Nuspec\CoreContent\ToDo-AptkAms\Core_Setup.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOSContent", "iOSContent", "{1FA41862-028E-498C-A6F5-91F2AD99246A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{0F212323-6A51-4795-B52D-E60C7AC4097F}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\iOSContent\ToDo-AptkAms\iOS_Setup.txt = Nuspec\iOSContent\ToDo-AptkAms\iOS_Setup.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DroidContent", "DroidContent", "{C263B485-232C-4C33-A402-0E35EB5E744B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UwpContent", "UwpContent", "{60658046-EA0A-4D92-A43C-8FC1CBD90488}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinPhoneContent", "WinPhoneContent", "{BCC4D61F-4D3B-4F66-9149-E8D53E927CE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinRTContent", "WinRTContent", "{67D484AF-EF8C-429E-BDA1-42B864084D7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{21EF0016-B1BB-4DC6-B7FF-91C9C6749160}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\DroidContent\ToDo-AptkAms\Droid_Setup.txt = Nuspec\DroidContent\ToDo-AptkAms\Droid_Setup.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{D70D2DFA-1A0E-417A-B9B5-8C3CC484725A}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\UwpContent\ToDo-AptkAms\Uwp_Setup.txt = Nuspec\UwpContent\ToDo-AptkAms\Uwp_Setup.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{CA799030-D66F-45E7-9C75-C9AB963C369E}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\WinPhoneContent\ToDo-AptkAms\WinPhone_Setup.txt = Nuspec\WinPhoneContent\ToDo-AptkAms\WinPhone_Setup.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDo-AptkAms", "ToDo-AptkAms", "{E33C3E4D-CAFA-4368-85A7-CE5D98DE13CB}"
+	ProjectSection(SolutionItems) = preProject
+		Nuspec\WinRTContent\ToDo-AptkAms\WinRT_Setup.txt = Nuspec\WinRTContent\ToDo-AptkAms\WinRT_Setup.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		AptkAms.Shared\AptkAms.Shared.projitems*{56a56f17-7de1-4ca1-9617-bf32e971ac84}*SharedItemsImports = 4
@@ -597,5 +644,17 @@ Global
 		{F1FBD5F6-E337-4254-B116-2BB99F83970C} = {934B405D-E514-43D2-A304-46C120B8F3FA}
 		{5FAE6C28-FF90-49C2-8B8E-0FAB1DA83692} = {62B32C77-536A-4314-8DBA-C8483EB3E253}
 		{3AA75D84-F560-4885-847B-90C36C5FF96F} = {62B32C77-536A-4314-8DBA-C8483EB3E253}
+		{0A7CC97B-FD26-4125-97DF-F44B7E034469} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{BCE040BE-86C0-48C3-80A6-97AC179EA1FC} = {0A7CC97B-FD26-4125-97DF-F44B7E034469}
+		{1FA41862-028E-498C-A6F5-91F2AD99246A} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{0F212323-6A51-4795-B52D-E60C7AC4097F} = {1FA41862-028E-498C-A6F5-91F2AD99246A}
+		{C263B485-232C-4C33-A402-0E35EB5E744B} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{60658046-EA0A-4D92-A43C-8FC1CBD90488} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{BCC4D61F-4D3B-4F66-9149-E8D53E927CE1} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{67D484AF-EF8C-429E-BDA1-42B864084D7B} = {8901828B-066D-4E75-8D1B-CE365CB9AF27}
+		{21EF0016-B1BB-4DC6-B7FF-91C9C6749160} = {C263B485-232C-4C33-A402-0E35EB5E744B}
+		{D70D2DFA-1A0E-417A-B9B5-8C3CC484725A} = {60658046-EA0A-4D92-A43C-8FC1CBD90488}
+		{CA799030-D66F-45E7-9C75-C9AB963C369E} = {BCC4D61F-4D3B-4F66-9149-E8D53E927CE1}
+		{E33C3E4D-CAFA-4368-85A7-CE5D98DE13CB} = {67D484AF-EF8C-429E-BDA1-42B864084D7B}
 	EndGlobalSection
 EndGlobal

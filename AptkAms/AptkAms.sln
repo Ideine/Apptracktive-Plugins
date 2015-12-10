@@ -17,8 +17,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AptkAms.Shared", "AptkAms.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.LocalStore", "AptkAms.LocalStore\AptkAms.LocalStore.csproj", "{6E8DF24C-3029-4227-9C81-404BC5C18889}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.MvvmCross", "AptkAms.MvvmCross", "{81D5428D-B40E-4E82-85F2-B2A52883F077}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AptkAms.WinRT", "AptkAms.WinRT", "{934B405D-E514-43D2-A304-46C120B8F3FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AptkAms.WinRT.Windows", "AptkAms.WinRT\AptkAms.WinRT.Windows\AptkAms.WinRT.Windows.csproj", "{ED9A4CA1-C04C-457D-9A2E-7995CCF12356}"
@@ -41,12 +39,12 @@ Global
 		AptkAms.Shared\AptkAms.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{3bc9b55f-f2f3-4cc5-932b-088ef9acb768}*SharedItemsImports = 13
-		AptkAms.Shared\AptkAms.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		AptkAms.Shared\AptkAms.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{f1fbd5f6-e337-4254-b116-2bb99f83970c}*SharedItemsImports = 13
 		AptkAms.Shared\AptkAms.Shared.projitems*{4ee4f673-d674-41ff-b245-dd1b4f0e8cb4}*SharedItemsImports = 4
-		AptkAms.Shared\AptkAms.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		AptkAms.Shared\AptkAms.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{4d073c1d-c46c-4b18-92cc-d3729e11dc88}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

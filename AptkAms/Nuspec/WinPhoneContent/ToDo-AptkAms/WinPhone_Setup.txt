@@ -16,6 +16,6 @@ Enjoy!
 you have to install the nuget package AptkAmsLocalStore aka Azure Mobile Services Plugin Local Store Extension for Xamarin and Windows
 
 
-Tutorials on http://www.appatracktive.com
+Tutorials on http://www.apptracktive.com
 Project and documentation on https://github.com/Apptracktive
 Contact on Twitter @Apptracktive

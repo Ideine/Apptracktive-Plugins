@@ -8,16 +8,16 @@
         <owners>Apptracktive</owners>
         <licenseUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/Apptracktive/Plugins</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo_aptk-128.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo-64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Work with Azure Mobile Services with almost 1 line of code to manage remote data, local data*, authenticate users or send custom API requests (see online documentation and examples).
+        <description>AptkAms plugin let you work with Azure Mobile Services with almost 1 line of code to manage remote data, local data*, authenticate users or send custom API requests (see online documentation and examples).
 
 All API available from a PCL with a single line of code, including user authentication.
 
 Can be used with any MVVM framework.
 
 * local data management require installation of the Azure Mobile Services Plugin Local Store Extension nuget package.</description>
-        <summary>Azure Mobile Services Plugin for Xamarin and Windows</summary>
+        <summary>AptkAms aka Azure Mobile Services Plugin for Xamarin and Windows</summary>
         <releaseNotes>1.0.0-beta1:
 [New] Initialization configurable with many options
 [New] Manage remote data
@@ -35,13 +35,13 @@ Can be used with any MVVM framework.
         </dependencies>
     </metadata>
     <files>
-        <file src="content\MonoAndroid10\ToDo-AptkAms\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AptkAms\Droid_Setup.txt" />
-        <file src="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAms\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAms\Core_Setup.txt" />
-        <file src="content\UAP10\ToDo-AptkAms\Uwp_Setup.txt" target="content\UAP10\ToDo-AptkAms\Uwp_Setup.txt" />
-        <file src="content\win8\ToDo-AptkAms\WinRT_Setup.txt" target="content\win8\ToDo-AptkAms\WinRT_Setup.txt" />
-        <file src="content\wp8\ToDo-AptkAms\WinPhone_Setup.txt" target="content\wp8\ToDo-AptkAms\WinPhone_Setup.txt" />
-        <file src="content\wpa81\ToDo-AptkAms\WinRT_Setup.txt" target="content\wpa81\ToDo-AptkAms\WinRT_Setup.txt" />
-        <file src="content\Xamarin.iOS10\ToDo-AptkAms\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AptkAms\iOS_Setup.txt" />
+        <file src="DroidContent\ToDo-AptkAms\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AptkAms\Droid_Setup.txt" />
+        <file src="CoreContent\ToDo-AptkAms\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAms\Core_Setup.txt" />
+        <file src="UwpContent\ToDo-AptkAms\Uwp_Setup.txt" target="content\UAP10\ToDo-AptkAms\Uwp_Setup.txt" />
+        <file src="WinRTContent\ToDo-AptkAms\WinRT_Setup.txt" target="content\win8\ToDo-AptkAms\WinRT_Setup.txt" />
+        <file src="WinPhoneContent\ToDo-AptkAms\WinPhone_Setup.txt" target="content\wp8\ToDo-AptkAms\WinPhone_Setup.txt" />
+        <file src="WinRTContent\ToDo-AptkAms\WinRT_Setup.txt" target="content\wpa81\ToDo-AptkAms\WinRT_Setup.txt" />
+        <file src="iOSContent\ToDo-AptkAms\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AptkAms\iOS_Setup.txt" />
         <file src="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
         <file src="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.dll" />
         <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />

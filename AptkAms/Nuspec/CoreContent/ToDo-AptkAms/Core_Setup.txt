@@ -19,6 +19,6 @@ you have to create EmailLogin, EmailRegistration and ControlToken custom api con
 Enjoy!
 
 
-Tutorials on http://www.appatracktive.com
+Tutorials on http://www.apptracktive.com
 Project and documentation on https://github.com/Apptracktive
 Contact on Twitter @Apptracktive

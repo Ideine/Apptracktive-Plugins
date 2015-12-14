@@ -6,12 +6,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Aptk.Plugins.AzureMobileServices;
-using Aptk.Plugins.AzureMobileServices.Identity;
-using Aptk.Plugins.AzureMobileServices.LocalStore;
-using AptkAms.Test.Core.Model;
+using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
-namespace AptkAms.Test.Core
+namespace AptkAms.Sample.Core
 {
     public partial class MainPage : ContentPage
     {
@@ -28,20 +26,20 @@ namespace AptkAms.Test.Core
         {
             base.OnAppearing();
 
-            await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
+            //await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task AddItem(TodoItem item)
         {
-            await _aptkAmsService.Data.LocalTable<TodoItem>().InsertAsync(item);
+            await _aptkAmsService.Data.RemoteTable<TodoItem>().InsertAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task CompleteItem(TodoItem item)
         {
             item.Complete = true;
-            await _aptkAmsService.Data.LocalTable<TodoItem>().UpdateAsync(item);
+            await _aptkAmsService.Data.RemoteTable<TodoItem>().UpdateAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
@@ -98,7 +96,7 @@ namespace AptkAms.Test.Core
             {
                 Debug.WriteLine(@"ERROR {0}", ex.Message);
                 // requires C# 6
-                await DisplayAlert ("Refresh Error", "Couldn't refresh data ("+ex.Message+")", "OK");
+                //await DisplayAlert ("Refresh Error", "Couldn't refresh data ("+ex.Message+")", "OK");
             }
             list.EndRefresh();
             if (!success)
@@ -107,20 +105,15 @@ namespace AptkAms.Test.Core
 
         public async void OnSync(object sender, EventArgs e)
         {
-            await _aptkAmsService.Data.PushAsync();
+            //await _aptkAmsService.Data.PushAsync();
+            ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task<List<TodoItem>> GetTodoItemsAsync()
         {
-            return await _aptkAmsService.Data.LocalTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
-        }
-
-        public async void OnLog(object sender, EventArgs e)
-        {
-            if (!await _aptkAmsService.Identity.EnsureLoggedInAsync(false))
-            {
-                await _aptkAmsService.Identity.LoginAsync(AptkAmsAuthenticationProvider.Facebook);
-            }
+            var test = _aptkAmsService.Data.RemoteTable<TodoItem>();
+            var r =  await _aptkAmsService.Data.RemoteTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
+            return r;
         }
     }
 }

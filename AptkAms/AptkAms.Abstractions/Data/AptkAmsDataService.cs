@@ -7,11 +7,14 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace Aptk.Plugins.AzureMobileServices.Data
 {
+    /// <summary>
+    /// Service to manage data
+    /// </summary>
     public class AptkAmsDataService : IAptkAmsDataService
     {
         private readonly IAptkAmsPluginConfiguration _configuration;
         private readonly IMobileServiceClient _client;
-        private List<object> _remoteTableServices;
+        private Dictionary<Type, object> _remoteTableServices;
         private bool _isInitilized;
 
         public AptkAmsDataService(IAptkAmsPluginConfiguration configuration, IMobileServiceClient client)
@@ -27,7 +30,7 @@ namespace Aptk.Plugins.AzureMobileServices.Data
         {
             if (!_isInitilized)
             {
-                _remoteTableServices = new List<object>();
+                _remoteTableServices = new Dictionary<Type, object>();
 
                 // Get the list of tables
                 List<Type> tableTypes;
@@ -53,15 +56,22 @@ namespace Aptk.Plugins.AzureMobileServices.Data
             return _isInitilized;
         }
 
+        /// <summary>
+        /// Service to manage remote Azure data
+        /// </summary>
+        /// <typeparam name="T">Data table to manage (model class)</typeparam>
+        /// <returns></returns>
         public IAptkAmsRemoteTableService<T> RemoteTable<T>() where T : ITableData
         {
-            var genericRemoteTable = _remoteTableServices.FirstOrDefault(t => t is AptkAmsRemoteTableService<T>);
+            object genericRemoteTable;
+            _remoteTableServices.TryGetValue(typeof(T), out genericRemoteTable);
             if (genericRemoteTable == null)
             {
                 var remoteTable = new AptkAmsRemoteTableService<T>(_client);
                 genericRemoteTable = remoteTable;
-                _remoteTableServices.Add(remoteTable);
+                _remoteTableServices.Add(typeof(T), remoteTable);
             }
+
             return genericRemoteTable as AptkAmsRemoteTableService<T>;
         }
     }

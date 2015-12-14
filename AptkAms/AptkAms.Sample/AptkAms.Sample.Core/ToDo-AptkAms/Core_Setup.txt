@@ -1,0 +1,24 @@
+1. Update/Create your Model classes so that they all inherit from EntityData abstract class 
+or ITableData interface if there's another parent class yet.
+
+2. Install this package on your platform(s) project(s) to configure and initialize the plugin before using it
+
+3. (Optional) Registering an intance of this plugin with IoC is a better way to use it than calling the static AptkAmsPluginLoader.Instance each time
+(Look at MvvmCross, MvvmLight, FreshMvvm or any Mvvm/IoC framework of your choice).
+
+
+/!\ 1: If your Model classes are not hosted by this project, you also need to install this nuget package into it (see online documentation and tutorials)
+
+/!\ 2: If you want to manage local data thanks to LocalTable<T> and Push methods
+you have to install the nuget package AptkAmsLocalStore aka Azure Mobile Services Plugin Local Store Extension for Xamarin and Windows
+
+/!\ 3: If you plan to use the custom login/password LoginAsync and RegistrationAsync method (also true for the EnsureLoggedInAsync one when controlToken is set to true),
+you have to create EmailLogin, EmailRegistration and ControlToken custom api controllers on your backend (see online documentation and tutorials)
+
+
+Enjoy!
+
+
+Tutorials on http://www.apptracktive.com
+Project and documentation on https://github.com/Apptracktive
+Contact on Twitter @Apptracktive

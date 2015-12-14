@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
@@ -16,6 +17,7 @@ namespace Aptk.Plugins.AzureMobileServices.Data
         public AptkAmsRemoteTableService(IMobileServiceClient client)
         {
             _client = client;
+            Initialize();
         }
 
         private bool Initialize()
@@ -29,6 +31,7 @@ namespace Aptk.Plugins.AzureMobileServices.Data
                 }
                 catch (Exception)
                 {
+                    Debug.WriteLine("Impossible d'initialiser {0}", typeof(T).Name);
                 }
             }
 

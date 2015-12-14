@@ -45,10 +45,10 @@ namespace AptkAms.Test.iOS
             // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
             identityHandler.AptkAmsService = AptkAmsPluginLoader.Instance;
             
-            // Init SQLite
+            //// Init SQLite
             SQLitePCL.CurrentPlatform.Init();
 
-            // Init local store extension
+            //// Init local store extension
             AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
         }
     }

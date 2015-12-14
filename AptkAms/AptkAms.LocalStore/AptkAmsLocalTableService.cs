@@ -24,6 +24,7 @@ namespace Aptk.Plugins.AzureMobileServices.LocalStore
             _localStoreConfiguration = localStoreConfiguration;
             _client = client;
             _localStoreService = localStoreService;
+            Task.Run(async () => await InitializeAsync());
         }
 
         private async Task<bool> InitializeAsync()

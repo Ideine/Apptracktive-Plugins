@@ -5,7 +5,7 @@
 
   <Grid RowSpacing="0">
     <Grid.RowDefinitions>
-      <RowDefinition Height="150" />
+      <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
@@ -14,7 +14,10 @@
       <StackLayout Orientation="Horizontal">
         <Entry x:Name="NewItemName"	Placeholder="Enter new item here" HorizontalOptions="StartAndExpand" />
         <Button Text="Add" HeightRequest="30" HorizontalOptions="End" Clicked="OnAdd" />
-        <Button Text="Sync" HeightRequest="30" HorizontalOptions="End" Clicked="OnSync" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Button Text="Sync" HeightRequest="30" HorizontalOptions="Start" Clicked="OnSync" />
+        <Button Text="Log" HeightRequest="30" HorizontalOptions="End" Clicked="OnLog" />
       </StackLayout>
     </StackLayout>
 

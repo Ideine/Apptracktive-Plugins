@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.Identity;
 using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
@@ -111,9 +112,15 @@ namespace AptkAms.Sample.Core
 
         async Task<List<TodoItem>> GetTodoItemsAsync()
         {
-            var test = _aptkAmsService.Data.RemoteTable<TodoItem>();
-            var r =  await _aptkAmsService.Data.RemoteTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
-            return r;
+            return await _aptkAmsService.Data.RemoteTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
+        }
+
+        public async void OnLog(object sender, EventArgs e)
+        {
+            if (!await _aptkAmsService.Identity.EnsureLoggedInAsync(false))
+            {
+                await _aptkAmsService.Identity.LoginAsync(AptkAmsAuthenticationProvider.Facebook);
+            }
         }
     }
 }

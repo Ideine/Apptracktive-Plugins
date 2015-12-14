@@ -99,11 +99,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Aptk.Plugins.AzureMobileServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureMobileServices.1.0.0-beta1\lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureMobileServices.1.0.0-beta2\lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureMobileServices.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureMobileServices.1.0.0-beta1\lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureMobileServices.1.0.0-beta2\lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

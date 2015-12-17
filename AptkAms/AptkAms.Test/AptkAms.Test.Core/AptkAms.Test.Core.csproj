@@ -52,7 +52,7 @@
       <HintPath>..\..\AptkAms\bin\Debug\Aptk.Plugins.AzureMobileServices.dll</HintPath>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureMobileServices.Abstractions">
-      <HintPath>..\..\AptkAms.Abstractions\bin\Debug\Aptk.Plugins.AzureMobileServices.Abstractions.dll</HintPath>
+      <HintPath>..\..\AptkAms\bin\Debug\Aptk.Plugins.AzureMobileServices.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureMobileServices.LocalStore">
       <HintPath>..\..\AptkAms.LocalStore\bin\Debug\Aptk.Plugins.AzureMobileServices.LocalStore.dll</HintPath>

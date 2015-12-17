@@ -97,17 +97,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Aptk.Plugins.AzureMobileServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AptkAms.iOS\bin\iPhone\Debug\Aptk.Plugins.AzureMobileServices.dll</HintPath>
-    </Reference>
-    <Reference Include="Aptk.Plugins.AzureMobileServices.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AptkAms.Abstractions\bin\Debug\Aptk.Plugins.AzureMobileServices.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Aptk.Plugins.AzureMobileServices.LocalStore">
-      <HintPath>..\..\AptkAms.LocalStore\bin\Debug\Aptk.Plugins.AzureMobileServices.LocalStore.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\WindowsAzure.MobileServices.1.3.2\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
       <Private>True</Private>
@@ -171,6 +160,20 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AptkAms.Abstractions\AptkAms.Abstractions.csproj">
+      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
+      <Name>AptkAms.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AptkAms.iOS\AptkAms.iOS.csproj">
+      <Project>{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}</Project>
+      <Name>AptkAms.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AptkAms.LocalStore\AptkAms.LocalStore.csproj">
+      <Project>{6e8df24c-3029-4227-9c81-404bc5c18889}</Project>
+      <Name>AptkAms.LocalStore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AptkAms.Test.Core\AptkAms.Test.Core.csproj">
       <Project>{5fae6c28-ff90-49c2-8b8e-0fab1da83692}</Project>
       <Name>AptkAms.Test.Core</Name>

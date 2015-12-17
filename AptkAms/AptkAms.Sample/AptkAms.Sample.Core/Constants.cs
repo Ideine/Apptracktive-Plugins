@@ -5,9 +5,9 @@ namespace AptkAms.Sample.Core
 {
     public static class Constants
     {
-        public static readonly string AmsAppUrl = "https://aptkamssamplebackend.azure-mobile.net/";
+        public static readonly string AmsAppUrl = "YOUR URL";
 
-        public static readonly string AmsAppKey = "WrRGVyINalLhvhsxVTIWfFqXXohxQR86";
+        public static readonly string AmsAppKey = "YOUR KEY";
 
         public static readonly Assembly ModelAssembly = typeof(TodoItem).GetTypeInfo().Assembly;
     }

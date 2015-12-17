@@ -109,7 +109,7 @@
   <ItemGroup>
     <Compile Include="Identity\AptkAmsPlatformIdentityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Properties\Aptk.Plugins.AzureMobileServices.Uwp.rd.xml" />
+    <EmbeddedResource Include="Properties\Aptk.Plugins.AzureMobileServices.Uwp.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AptkAms.Abstractions\AptkAms.Abstractions.csproj">

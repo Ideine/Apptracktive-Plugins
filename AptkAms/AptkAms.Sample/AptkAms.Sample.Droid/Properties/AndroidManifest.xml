@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="AptkAms.Sample.Droid.AptkAms.Sample.Droid" android:versionCode="1" android:versionName="1.0">
-  <uses-sdk android:minSdkVersion="16" />
-  <application android:label="AptkAms.Sample.Droid"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.apptracktive.aptkams.sample" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="16" />
+	<application android:label="AptkAms" android:icon="@drawable/Logo_RVB-72"></application>
 </manifest>

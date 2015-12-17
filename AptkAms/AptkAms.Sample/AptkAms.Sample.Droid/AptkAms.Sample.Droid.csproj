@@ -164,6 +164,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Logo_RVB-72.png" />
     <Content Include="ToDo-AptkAmsLocalStore\Droid_Setup.txt" />
     <Content Include="ToDo-AptkAms\Droid_Setup.txt" />
   </ItemGroup>

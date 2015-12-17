@@ -1,0 +1,12 @@
+1. Add this line after AptkAmsPluginLoader.Init(configuration, ApplicationContext); into the App OnLaunched method and complete it:
+
+		AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
+
+2. (Optional) There are many other optional settings to configure (like database name, init timeout, etc...) so please refer to online documentation and tutorials
+
+
+Enjoy!
+
+Tutorials on http://www.apptracktive.com
+Sources, documentation and samples on https://github.com/Apptracktive
+Contact on Twitter @Apptracktive

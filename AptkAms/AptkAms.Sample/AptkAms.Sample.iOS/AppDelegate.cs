@@ -1,4 +1,5 @@
 ﻿using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core;
 using Foundation;
 using UIKit;
@@ -18,6 +19,9 @@ namespace AptkAms.Sample.iOS
 
             var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
             AptkAmsPluginLoader.Init(configuration, app);
+
+            SQLitePCL.CurrentPlatform.Init();
+            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
 
             LoadApplication(new App());
 

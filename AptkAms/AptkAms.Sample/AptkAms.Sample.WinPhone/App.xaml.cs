@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -131,6 +132,7 @@ namespace AptkAms.Sample.WinPhone
             // Init Ams plugin
             var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
             AptkAmsPluginLoader.Init(configuration);
+            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
 
             // Gérer les requêtes de réinitialisation pour effacer la pile arrière
             RootFrame.Navigated += CheckForResetNavigation;

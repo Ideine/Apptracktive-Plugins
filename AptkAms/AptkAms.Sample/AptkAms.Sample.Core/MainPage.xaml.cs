@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Aptk.Plugins.AzureMobileServices;
 using Aptk.Plugins.AzureMobileServices.Identity;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core.Model;
 using Xamarin.Forms;
 
@@ -27,20 +28,20 @@ namespace AptkAms.Sample.Core
         {
             base.OnAppearing();
 
-            //await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
+            await _aptkAmsService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task AddItem(TodoItem item)
         {
-            await _aptkAmsService.Data.RemoteTable<TodoItem>().InsertAsync(item);
+            await _aptkAmsService.Data.LocalTable<TodoItem>().InsertAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task CompleteItem(TodoItem item)
         {
             item.Complete = true;
-            await _aptkAmsService.Data.RemoteTable<TodoItem>().UpdateAsync(item);
+            await _aptkAmsService.Data.LocalTable<TodoItem>().UpdateAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
@@ -112,7 +113,7 @@ namespace AptkAms.Sample.Core
 
         async Task<List<TodoItem>> GetTodoItemsAsync()
         {
-            return await _aptkAmsService.Data.RemoteTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
+            return await _aptkAmsService.Data.LocalTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
         }
 
         public async void OnLog(object sender, EventArgs e)

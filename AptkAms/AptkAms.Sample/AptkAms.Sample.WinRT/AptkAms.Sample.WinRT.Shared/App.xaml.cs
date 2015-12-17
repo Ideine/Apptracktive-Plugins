@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core;
 using Xamarin.Forms;
 using Application = Windows.UI.Xaml.Application;
@@ -77,6 +78,7 @@ namespace AptkAms.Sample.WinRT
                 // Init Ams plugin
                 var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
                 AptkAmsPluginLoader.Init(configuration);
+                AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

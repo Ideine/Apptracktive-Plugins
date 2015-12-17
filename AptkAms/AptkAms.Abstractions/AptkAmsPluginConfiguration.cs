@@ -14,6 +14,17 @@ namespace Aptk.Plugins.AzureMobileServices
         /// AptkAms plugin configuration constructor
         /// </summary>
         /// <param name="amsAppUrl">Azure Mobile Service application URL</param>
+        /// <param name="modelAssembly">Model classes hosting Assembly (usually the same)</param>
+        public AptkAmsPluginConfiguration(string amsAppUrl, Assembly modelAssembly)
+        {
+            AmsAppUrl = amsAppUrl;
+            ModelAssembly = modelAssembly;
+        }
+
+        /// <summary>
+        /// AptkAms plugin configuration constructor
+        /// </summary>
+        /// <param name="amsAppUrl">Azure Mobile Service application URL</param>
         /// <param name="amsAppKey">Azure Mobile Service application Key</param>
         /// <param name="modelAssembly">Model classes hosting Assembly (usually the same)</param>
         public AptkAmsPluginConfiguration(string amsAppUrl, string amsAppKey, Assembly modelAssembly)

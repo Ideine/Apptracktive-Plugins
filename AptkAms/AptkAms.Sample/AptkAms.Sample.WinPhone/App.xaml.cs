@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Resources;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 using Aptk.Plugins.AzureMobileServices;
+using Aptk.Plugins.AzureMobileServices.Identity;
 using Aptk.Plugins.AzureMobileServices.LocalStore;
 using AptkAms.Sample.Core;
+using AptkAms.Sample.Core.Helpers;
+using AptkAms.Sample.Core.Services;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using AptkAms.Sample.WinPhone.Resources;
@@ -130,9 +134,7 @@ namespace AptkAms.Sample.WinPhone
             Forms.Init();
 
             // Init Ams plugin
-            var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
-            AptkAmsPluginLoader.Init(configuration);
-            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
+            InitAptkAmsPlugin();
 
             // Gérer les requêtes de réinitialisation pour effacer la pile arrière
             RootFrame.Navigated += CheckForResetNavigation;
@@ -232,6 +234,27 @@ namespace AptkAms.Sample.WinPhone
 
                 throw;
             }
+        }
+
+        private void InitAptkAmsPlugin()
+        {
+            var configuration = new AptkAmsPluginConfiguration(Constants.AmsAppUrl, Constants.AmsAppKey, Constants.ModelAssembly);
+
+            // [Optional] Handle expired token to automaticaly ask for login if needed
+            var identityHandler = new AptkAmsIdentityHandler(configuration, AptkAmsAuthenticationProvider.Facebook);
+            configuration.Handlers = new HttpMessageHandler[] { identityHandler };
+
+            // [Optional] Handle credentials local caching
+            configuration.CredentialsCacheService = new AptkAmsCredentialCacheService();
+
+            // Init main plugin
+            AptkAmsPluginLoader.Init(configuration);
+
+            // [Optional] If AptkAmsIdentityHandler is used, give it an instance of the plugin after Init
+            identityHandler.AptkAmsService = AptkAmsPluginLoader.Instance;
+
+            //// Init local store extension
+            AptkAmsLocalStorePluginLoader.Init(new AptkAmsLocalStorePluginConfiguration(AptkAmsPluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
         }
     }
 }

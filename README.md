@@ -1,2 +1,2 @@
 # Plugins
-Xamarin &amp; MvvmCross plugins
+Xamarin &amp; Windows plugins

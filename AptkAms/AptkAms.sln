@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuspec", "Nuspec", "{8901828B-066D-4E75-8D1B-CE365CB9AF27}"
 	ProjectSection(SolutionItems) = preProject
 		Nuspec\AptkAms.nuspec = Nuspec\AptkAms.nuspec
+		Nuspec\AptkAmsLocalStore.nuspec = Nuspec\AptkAmsLocalStore.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreContent", "CoreContent", "{0A7CC97B-FD26-4125-97DF-F44B7E034469}"
@@ -118,12 +119,12 @@ Global
 		AptkAms.Shared\AptkAms.Shared.projitems*{2882aeeb-d4cd-4eb9-8a6c-6653b33681f0}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{3bc9b55f-f2f3-4cc5-932b-088ef9acb768}*SharedItemsImports = 13
-		AptkAms.Shared\AptkAms.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		AptkAms.Shared\AptkAms.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{f1fbd5f6-e337-4254-b116-2bb99f83970c}*SharedItemsImports = 13
 		AptkAms.Shared\AptkAms.Shared.projitems*{4ee4f673-d674-41ff-b245-dd1b4f0e8cb4}*SharedItemsImports = 4
-		AptkAms.Shared\AptkAms.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.WinRT\AptkAms.WinRT.Shared\AptkAms.WinRT.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		AptkAms.Shared\AptkAms.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		AptkAms.Shared\AptkAms.Shared.projitems*{4d073c1d-c46c-4b18-92cc-d3729e11dc88}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

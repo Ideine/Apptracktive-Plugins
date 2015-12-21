@@ -1,27 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
-        <id>Aptk.Plugins.AzureMobileServices</id>
-        <version>1.0.0-beta2</version>
-        <title>AptkAms aka Azure Mobile Services Plugin for Xamarin and Windows</title>
+        <id>Aptk.Plugins.AzureForMobile</id>
+        <version>1.0.0-beta1</version>
+        <title>Azure For Mobile Plugin for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
         <licenseUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/Apptracktive/Plugins</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo-64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>AptkAms plugin let you work with Azure Mobile Services with almost 1 line of code to manage remote data, local data*, authenticate users or send custom API requests (see online documentation and examples).
+        <description>Azure For Mobile Plugin let you work with Azure usefull services for mobile with almost one line of code.
+You'll be able to:
+. Manage remote data
+. Manage local data*
+. Authenticate users 
+. Send custom API requests
+. Register for remote notifications* (aka Push, available soon)
+. Manage files* (aka Blob, available soon)
+. Send and receive realtime messages* (aka SignalR, available soon)
 
-All API available from a PCL with a single line of code, including user authentication.
+* with plugin extension.
 
-Can be used with any MVVM framework.
+Can/Should be used with any MVVM framework.
 
-* local data management require installation of the Azure Mobile Services Plugin Local Store Extension nuget package.</description>
-        <summary>AptkAms aka Azure Mobile Services Plugin for Xamarin and Windows</summary>
-        <releaseNotes>1.0.0-beta2:
-[Fixed] Table services initialization
-
-1.0.0-beta1:
+Tuto available on http://www.apptracktive.com
+Sources, documentation and samples on https://github.com/Apptracktive
+Twitter @Apptracktive</description>
+        <summary>Azure For Mobile Plugin for Xamarin and Windows</summary>
+        <releaseNotes>1.0.0-beta1:
 [New] Initialization configurable with many options
 [New] Manage remote data
 [New] Manage local data (with Local Store Extension)
@@ -29,8 +36,8 @@ Can be used with any MVVM framework.
 [New] Ask users for authentication directly from a PCL
 [New] Send custom API request
 [New] All API available from a single line of code</releaseNotes>
-        <copyright>Copyright © 2015 Apptracktive</copyright>
-        <tags>AptkAms Azure Mobile Services Ams MvvmCross MvvmLight FreshMvvm MVVM Xamarin Apptracktive iOS Android</tags>
+        <copyright>Copyright © 2016 Apptracktive</copyright>
+        <tags>AzureForMobile Azure Mobile Services Ams MvvmCross MvvmLight FreshMvvm MVVM Xamarin Apptracktive iOS Android</tags>
         <dependencies>
             <dependency id="Microsoft.Bcl.Build" version="1.0.21" />
             <dependency id="Newtonsoft.Json" version="7.0.1" />
@@ -38,23 +45,26 @@ Can be used with any MVVM framework.
         </dependencies>
     </metadata>
     <files>
-        <file src="content\MonoAndroid10\ToDo-AptkAms\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AptkAms\Droid_Setup.txt" />
-        <file src="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAms\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAms\Core_Setup.txt" />
-        <file src="content\win8\ToDo-AptkAms\WinRT_Setup.txt" target="content\win8\ToDo-AptkAms\WinRT_Setup.txt" />
-        <file src="content\wp8\ToDo-AptkAms\WinPhone_Setup.txt" target="content\wp8\ToDo-AptkAms\WinPhone_Setup.txt" />
-        <file src="content\wpa81\ToDo-AptkAms\WinRT_Setup.txt" target="content\wpa81\ToDo-AptkAms\WinRT_Setup.txt" />
-        <file src="content\Xamarin.iOS10\ToDo-AptkAms\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AptkAms\iOS_Setup.txt" />
-        <file src="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureMobileServices.dll" />
-        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.dll" />
-        <file src="lib\win8\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\win8\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\win8\Aptk.Plugins.AzureMobileServices.dll" target="lib\win8\Aptk.Plugins.AzureMobileServices.dll" />
-        <file src="lib\wp8\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\wp8\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\wp8\Aptk.Plugins.AzureMobileServices.dll" target="lib\wp8\Aptk.Plugins.AzureMobileServices.dll" />
-        <file src="lib\wpa81\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\wpa81\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\wpa81\Aptk.Plugins.AzureMobileServices.dll" target="lib\wpa81\Aptk.Plugins.AzureMobileServices.dll" />
-        <file src="lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" target="lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.Abstractions.dll" />
-        <file src="lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.dll" target="lib\Xamarin.iOS10\Aptk.Plugins.AzureMobileServices.dll" />
+        <file src="content\MonoAndroid10\ToDo-AzureForMobile\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AzureForMobile\Droid_Setup.txt" />
+        <file src="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AzureForMobile\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AzureForMobile\Core_Setup.txt" />
+        <file src="content\UAP10\ToDo-AzureForMobile\Uwp_Setup.txt" target="content\UAP10\ToDo-AzureForMobile\Uwp_Setup.txt" />
+        <file src="content\win8\ToDo-AzureForMobile\WinRT_Setup.txt" target="content\win8\ToDo-AzureForMobile\WinRT_Setup.txt" />
+        <file src="content\wp8\ToDo-AzureForMobile\WinPhone_Setup.txt" target="content\wp8\ToDo-AzureForMobile\WinPhone_Setup.txt" />
+        <file src="content\wpa81\ToDo-AzureForMobile\WinRT_Setup.txt" target="content\wpa81\ToDo-AzureForMobile\WinRT_Setup.txt" />
+        <file src="content\Xamarin.iOS10\ToDo-AzureForMobile\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AzureForMobile\iOS_Setup.txt" />
+        <file src="lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.dll" target="lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\UAP10\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\UAP10\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\UAP10\Aptk.Plugins.AzureForMobile.dll" target="lib\UAP10\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\win8\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\win8\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\win8\Aptk.Plugins.AzureForMobile.dll" target="lib\win8\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\wp8\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\wp8\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\wp8\Aptk.Plugins.AzureForMobile.dll" target="lib\wp8\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\wpa81\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\wpa81\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\wpa81\Aptk.Plugins.AzureForMobile.dll" target="lib\wpa81\Aptk.Plugins.AzureForMobile.dll" />
+        <file src="lib\Xamarin.iOS10\Aptk.Plugins.AzureForMobile.Abstractions.dll" target="lib\Xamarin.iOS10\Aptk.Plugins.AzureForMobile.Abstractions.dll" />
+        <file src="lib\Xamarin.iOS10\Aptk.Plugins.AzureForMobile.dll" target="lib\Xamarin.iOS10\Aptk.Plugins.AzureForMobile.dll" />
     </files>
 </package>

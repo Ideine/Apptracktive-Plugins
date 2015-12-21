@@ -1,37 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
-        <id>Aptk.Plugins.AzureMobileServices.LocalStore</id>
+        <id>Aptk.Plugins.AzureForMobile.LocalStore</id>
         <version>1.0.0-beta1</version>
-        <title>AptkAmsLocalStore aka Azure Mobile Services Plugin Local Store Extension for Xamarin and Windows</title>
+        <title>Azure For Mobile Plugin's Local Store Extension for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
         <licenseUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/Apptracktive/Plugins</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo-64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>This extension adds local data management feature to the AptkAms main plugin.
+        <description>This extension adds local data management feature to the Azure For Mobile main plugin.
 
 Tuto available on http://www.apptracktive.com
-Sources, documentation and samples on https://github.com/Apptracktive</description>
-        <summary>AptkAmsLocalStore aka Azure Mobile Services Plugin Local Store Extension for Xamarin and Windows</summary>
+Sources, documentation and samples on https://github.com/Apptracktive
+Twitter @Apptracktive</description>
+        <summary>Azure For Mobile Plugin's Local Store Extension for Xamarin and Windows</summary>
         <releaseNotes>1.0.0-beta1:
 [New] Manage local data
 [New] Manage data synchronization
 [New] All API available from a single line of code</releaseNotes>
-        <copyright>Copyright © 2015 Apptracktive</copyright>
-        <tags>AptkAms AptkAmsLocalStore Azure Mobile Services Ams MvvmCross MvvmLight FreshMvvm MVVM Xamarin Apptracktive iOS Android SQLite SQLiteStore</tags>
+        <copyright>Copyright © 2016 Apptracktive</copyright>
+        <tags>AzureForMobile AzureForMobile.LocalStore Azure Mobile Services Ams MvvmCross MvvmLight FreshMvvm MVVM Xamarin Apptracktive iOS Android SQLite SQLiteStore</tags>
         <dependencies>
             <dependency id="WindowsAzure.MobileServices.SQLiteStore" version="1.0.4" />
         </dependencies>
     </metadata>
     <files>
-        <file src="content\MonoAndroid10\ToDo-AptkAmsLocalStore\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AptkAmsLocalStore\Droid_Setup.txt" />
-        <file src="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAmsLocalStore\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AptkAmsLocalStore\Core_Setup.txt" />
-        <file src="content\win8\ToDo-AptkAmsLocalStore\WinRT_Setup.txt" target="content\win8\ToDo-AptkAmsLocalStore\WinRT_Setup.txt" />
-        <file src="content\wp8\ToDo-AptkAmsLocalStore\WinPhone_Setup.txt" target="content\wp8\ToDo-AptkAmsLocalStore\WinPhone_Setup.txt" />
-        <file src="content\wpa81\ToDo-AptkAmsLocalStore\WinRT_Setup.txt" target="content\wpa81\ToDo-AptkAmsLocalStore\WinRT_Setup.txt" />
-        <file src="content\Xamarin.iOS10\ToDo-AptkAmsLocalStore\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AptkAmsLocalStore\iOS_Setup.txt" />
-        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.LocalStore.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureMobileServices.LocalStore.dll" />
+        <file src="content\MonoAndroid10\ToDo-AzureForMobile.LocalStore\Droid_Setup.txt" target="content\MonoAndroid10\ToDo-AzureForMobile.LocalStore\Droid_Setup.txt" />
+        <file src="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AzureForMobile.LocalStore\Core_Setup.txt" target="content\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\ToDo-AzureForMobile.LocalStore\Core_Setup.txt" />
+        <file src="content\UAP10\ToDo-AzureForMobile.LocalStore\Uwp_Setup.txt" target="content\UAP10\ToDo-AzureForMobile.LocalStore\Uwp_Setup.txt" />
+        <file src="content\win8\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" target="content\win8\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" />
+        <file src="content\wp8\ToDo-AzureForMobile.LocalStore\WinPhone_Setup.txt" target="content\wp8\ToDo-AzureForMobile.LocalStore\WinPhone_Setup.txt" />
+        <file src="content\wpa81\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" target="content\wpa81\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" />
+        <file src="content\Xamarin.iOS10\ToDo-AzureForMobile.LocalStore\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AzureForMobile.LocalStore\iOS_Setup.txt" />
+        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll" />
     </files>
 </package>

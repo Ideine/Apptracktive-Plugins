@@ -14,6 +14,14 @@ Or:
 
 Just install the AzureForMobile package from nuget and then follow the ToDo-AzureForMobile instructions.
 
-## Configuration
+## MVVM
 
-After nuget package installed, please follow the ToDo-AzureForMobile instructions.
+After plugin installed and configured, you'd better register an instance of it to then resolve it.
+
+#### MVVMCross
+
+    Mvx.RegisterSingleton(AzureForMobilePluginLoader.Instance);
+
+#### FreshMVVM
+
+    FreshIOC.Container.Register<IAzureForMobileService>(AzureForMobilePluginLoader.Instance);

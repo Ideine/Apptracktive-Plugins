@@ -13,4 +13,4 @@ Or:
 
     await _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
 
-See Wiki for documentation.
+Open the project folder for more details.

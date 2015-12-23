@@ -275,11 +275,15 @@ More details on samples.
 
 # AzureForMobile.LocalStore
 
-You can manage local data and sync by adding the AzureForMobile Plugin's LocalStore Extension from Nuget and configure it.
+You can manage local data and sync by adding the AzureForMobile Plugin's LocalStore Extension from Nuget and then follow the ToDo-AzureForMobile.LocalStore instructions.
 
-Then you'll get access to LocalTable< T >() extension from Data and use it as you used to with the standard MobileServiceSyncTable (please refer to Microsoft official documentation) like:
+Then you'll get access to LocalTable< T >() extension from Data where T could be one of your Model class and use it as you used to with the standard MobileServiceSyncTable (please refer to Microsoft official documentation) like:
 
     var openItems = await _azureForMobileService.Data.LocalTable<TodoItem>().Where(t => !t.Complete).ToListAsync();
+
+Or
+
+    await _azureForMobile.Data.PushAsync();
     
 ## Setup
 

@@ -91,8 +91,9 @@ The following code example:
 4. If not yet logged in, it use a default identity provider to log in (I should change that part by an Action like onError so that we could show an identity provider picker view)
 5. When logged in again, send the original request
 
+
     /// <summary>
-    /// DelegatingHandler to automaticaly log in user again if his auth token expired
+    /// DelegatingHandler to automaticaly login user again if its auth token expired
     /// </summary>
     public class AzureForMobileIdentityHandler : DelegatingHandler
     {
@@ -149,7 +150,7 @@ The following code example:
 
                     try
                     {
-                        // Log in user again
+                        // Login user again
                         var user = await AzureForMobileService.Identity.LoginAsync(_provider);
 
                         // Save the user if possible
@@ -201,7 +202,6 @@ The following code example:
     }
 
 Now you created your custom handler, you have to tell the plugin to use it thanks to each platform configuration.
-
 Between var configuration = new AzureForMobilePluginConfiguration(...); and AzureForMobilePluginLoader.Init(...); add:
 
     var identityHandler = new AzureForMobileIdentityHandler(configuration, AzureForMobileAuthenticationProvider.Facebook);

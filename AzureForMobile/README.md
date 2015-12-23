@@ -218,4 +218,52 @@ Then, after AzureForMobilePluginLoader.Init(...); add:
     
 #### Caching credentials
 
-More details to come...
+You can tell the plugin how to store credentials for further use.
+
+To do so, implement a storage feature of your choice like I did in samples with Xamarin.Settings and then implement the IAzureForMobileCredentialCacheService to use it:
+
+    /// <summary>
+    /// This IAzureForMobileCredentialsCacheService implementation is a working example 
+    /// requiring the installation of Xamarin Settings plugin.
+    /// </summary>
+    public class AzureForMobileCredentialCacheService : IAzureForMobileCredentialsCacheService
+    {
+        public bool TryLoadCredentials(out IAzureForMobileCredentials credentials)
+        {
+            credentials = !string.IsNullOrEmpty(Settings.AzureForMobileIdentityUserId)
+                          && !string.IsNullOrEmpty(Settings.AzureForMobileIdentityAuthToken)
+                          && Settings.AzureForMobileIdentityProvider != AzureForMobileAuthenticationProvider.None
+                ? new AzureForMobileCredentials(Settings.AzureForMobileIdentityProvider, new MobileServiceUser(Settings.AzureForMobileIdentityUserId)
+                    {
+                        MobileServiceAuthenticationToken = Settings.AzureForMobileIdentityAuthToken
+                    })
+                : null;
+
+            return credentials != null;
+        }
+
+        public void SaveCredentials(IAzureForMobileCredentials credentials)
+        {
+            if (credentials == null)
+                return;
+
+            Settings.AzureForMobileIdentityProvider = credentials.Provider;
+            Settings.AzureForMobileIdentityUserId = credentials.User.UserId;
+            Settings.AzureForMobileIdentityAuthToken = credentials.User.MobileServiceAuthenticationToken;
+        }
+
+        public void ClearCredentials()
+        {
+            Settings.AzureForMobileIdentityProvider = AzureForMobileAuthenticationProvider.None;
+            Settings.AzureForMobileIdentityUserId = string.Empty;
+            Settings.AzureForMobileIdentityAuthToken = string.Empty;
+        }
+    }
+
+Also, you have to set this credential cache service implementation to each platform configuration:
+
+Between var configuration = new AzureForMobilePluginConfiguration(...); and AzureForMobilePluginLoader.Init(...); add:
+
+    configuration.CredentialsCacheService = new AzureForMobileCredentialCacheService();
+    
+The plugin will deal with each methods by itself before login and after login and logout.

@@ -81,11 +81,12 @@ Api is here to send custom requests to custom Azure controllers.
 #### Handling token expiration
 
 You can specify custom handlers.
-One thing you can do with handler is automaticaly ask user to log in when his token expired or if not yet logged in.
+
+One thing you can do with handler is automaticaly ask user to log in again when his token expired or if not yet logged in.
 
 
     /// <summary>
-    /// DelegatingHandler to automaticaly login user again if its auth token expired
+    /// DelegatingHandler to automaticaly log in user again if its auth token expired
     /// </summary>
     public class AzureForMobileIdentityHandler : DelegatingHandler
     {
@@ -142,7 +143,7 @@ One thing you can do with handler is automaticaly ask user to log in when his to
 
                     try
                     {
-                        // Login user again
+                        // Log in user again
                         var user = await AzureForMobileService.Identity.LoginAsync(_provider);
 
                         // Save the user if possible
@@ -205,6 +206,7 @@ This code example:
 
 
 Now you created your custom handler, you have to tell the plugin to use it thanks to each platform configuration.
+
 Between var configuration = new AzureForMobilePluginConfiguration(...); and AzureForMobilePluginLoader.Init(...); add:
 
     var identityHandler = new AzureForMobileIdentityHandler(configuration, AzureForMobileAuthenticationProvider.Facebook);

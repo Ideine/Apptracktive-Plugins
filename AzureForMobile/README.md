@@ -260,6 +260,8 @@ To do so, implement a storage feature of your choice like I did in samples with 
         }
     }
 
+Note that you'll have to create each property UserId, AuthToken and IdentityProvider on the settings feature side.
+
 Also, you have to set this credential cache service implementation to each platform configuration:
 
 Between var configuration = new AzureForMobilePluginConfiguration(...); and AzureForMobilePluginLoader.Init(...); add:
@@ -267,3 +269,61 @@ Between var configuration = new AzureForMobilePluginConfiguration(...); and Azur
     configuration.CredentialsCacheService = new AzureForMobileCredentialCacheService();
     
 The plugin will deal with each methods by itself before login and after login and logout.
+
+More details on samples.
+
+
+# AzureForMobile.LocalStore
+
+You can manage local data and sync by adding the AzureForMobile Plugin's LocalStore Extension from Nuget and configure it.
+
+Then you'll get access to LocalTable< T >() extension from Data and use it as you used to with the standard MobileServiceSyncTable (please refer to Microsoft official documentation) like:
+
+    var openItems = await _azureForMobileService.Data.LocalTable<TodoItem>().Where(t => !t.Complete).ToListAsync();
+    
+## Setup
+
+Add the AzureForMobile Plugin's LocalStore Extension from Nuget and configure it.
+
+Basic configuration:
+
+After AzureForMobilePluginLoader.Init(...); add on each platform:
+
+#### Android & iOS
+
+    AzureForMobileLocalStorePluginLoader.Init(new AzureForMobileLocalStorePluginConfiguration(AzureForMobilePluginLoader.Instance, System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
+    
+#### WindowsPhone & Windows
+
+    AzureForMobileLocalStorePluginLoader.Init(new AzureForMobileLocalStorePluginConfiguration(AzureForMobilePluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));
+    
+## MVVM
+
+Nothing to register as it's an extension of the main plugin instance
+
+## Advanced
+
+1. You can change the database path
+2. You can change the database file name (default azureformobile.db)
+3. You can change the initialization timeout (default 30s)
+
+
+# AzureForMobile.Notification
+
+Work with Push notifications.
+
+Available soon...
+
+
+# AzureForMobile.File
+
+Upload/Download user files to/from Azure storage.
+
+Available soon...
+
+
+# AzureForMobile.Live
+
+Send/Receive realtime messages with SignalR.
+
+Available soon...

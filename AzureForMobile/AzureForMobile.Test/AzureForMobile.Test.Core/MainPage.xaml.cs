@@ -15,33 +15,33 @@ namespace AzureForMobile.Test.Core
 {
     public partial class MainPage : ContentPage
     {
-        private readonly IAzureForMobileService _AzureForMobileService;
+        private readonly IAzureForMobileService _azureForMobileService;
 
         public MainPage()
         {
             InitializeComponent();
 
-            _AzureForMobileService = AzureForMobilePluginLoader.Instance;
+            _azureForMobileService = AzureForMobilePluginLoader.Instance;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            await _AzureForMobileService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
+            await _azureForMobileService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task AddItem(TodoItem item)
         {
-            await _AzureForMobileService.Data.LocalTable<TodoItem>().InsertAsync(item);
+            await _azureForMobileService.Data.LocalTable<TodoItem>().InsertAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
         async Task CompleteItem(TodoItem item)
         {
             item.Complete = true;
-            await _AzureForMobileService.Data.LocalTable<TodoItem>().UpdateAsync(item);
+            await _azureForMobileService.Data.LocalTable<TodoItem>().UpdateAsync(item);
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
@@ -107,19 +107,19 @@ namespace AzureForMobile.Test.Core
 
         public async void OnSync(object sender, EventArgs e)
         {
-            await _AzureForMobileService.Data.PushAsync();
+            await _azureForMobileService.Data.PushAsync();
         }
 
         async Task<List<TodoItem>> GetTodoItemsAsync()
         {
-            return await _AzureForMobileService.Data.LocalTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
+            return await _azureForMobileService.Data.LocalTable<TodoItem>().Where(i => !i.Complete).ToListAsync();
         }
 
-        public async void OnLog(object sender, EventArgs e)
+        public void OnLog(object sender, EventArgs e)
         {
-            if (!await _AzureForMobileService.Identity.EnsureLoggedInAsync(false))
+            if (!_azureForMobileService.Identity.EnsureLoggedIn())
             {
-                await _AzureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
+                _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
             }
         }
     }

@@ -3,19 +3,19 @@
     <metadata>
         <id>Aptk.Plugins.AzureForMobile.LocalStore</id>
         <version>1.0.0-beta1</version>
-        <title>Azure For Mobile Plugin's Local Store Extension for Xamarin and Windows</title>
+        <title>AzureForMobile Plugin's LocalStore Extension for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
         <licenseUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/Apptracktive/Plugins</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo-64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>This extension adds local data management feature to the Azure For Mobile main plugin.
+        <description>This extension adds local data management feature to the AzureForMobile main plugin.
 
 Tuto available on http://www.apptracktive.com
 Sources, documentation and samples on https://github.com/Apptracktive
 Twitter @Apptracktive</description>
-        <summary>Azure For Mobile Plugin's Local Store Extension for Xamarin and Windows</summary>
+        <summary>AzureForMobile Plugin's LocalStore Extension for Xamarin and Windows</summary>
         <releaseNotes>1.0.0-beta1:
 [New] Manage local data
 [New] Manage data synchronization

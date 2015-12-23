@@ -3,14 +3,14 @@
     <metadata>
         <id>Aptk.Plugins.AzureForMobile</id>
         <version>1.0.0-beta1</version>
-        <title>Azure For Mobile Plugin for Xamarin and Windows</title>
+        <title>AzureForMobile Plugin for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
         <licenseUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/Apptracktive/Plugins</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Apptracktive/Plugins/master/Logo-64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Azure For Mobile Plugin let you work with Azure usefull services for mobile with almost one line of code.
+        <description>AzureForMobile Plugin let you work with Azure usefull services for mobile with almost one line of code.
 You'll be able to:
 . Manage remote data
 . Manage local data*
@@ -27,7 +27,7 @@ Can/Should be used with any MVVM framework.
 Tuto available on http://www.apptracktive.com
 Sources, documentation and samples on https://github.com/Apptracktive
 Twitter @Apptracktive</description>
-        <summary>Azure For Mobile Plugin for Xamarin and Windows</summary>
+        <summary>AzureForMobile Plugin for Xamarin and Windows</summary>
         <releaseNotes>1.0.0-beta1:
 [New] Initialization configurable with many options
 [New] Manage remote data

@@ -16,50 +16,56 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         MobileServiceUser CurrentUser { get; set; }
 
         /// <summary>
-        /// Logs a user server side into Azure Mobile Services
+        /// Logs a user server side into Azure
         /// </summary>
         /// <param name="provider">Identity provider to log with (must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory)</param>
         /// <param name="parameters">Optional identity provider specific extra parameters</param>
         /// <param name="useSingleSignOnIfAvailable">Use single sign on if available on platform</param>
-        /// <returns>An authenticated Azure Mobile Services user</returns>
+        /// <returns>An authenticated Azure user</returns>
         Task<MobileServiceUser> LoginAsync(AzureForMobileAuthenticationProvider provider, IDictionary<string, string> parameters = null, bool useSingleSignOnIfAvailable = false);
 
         /// <summary>
-        /// Logs a user client side into Azure Mobile Services
+        /// Logs a user client side into Azure
         /// </summary>
         /// <param name="provider">Identity provider to log with (must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory)</param>
         /// <param name="token">Identity provider authentication token</param>
-        /// <returns>An authenticated Azure Mobile Services user</returns>
+        /// <returns>An authenticated Azure user</returns>
         Task<MobileServiceUser> LoginAsync(AzureForMobileAuthenticationProvider provider, JObject token);
 
         /// <summary>
-        /// Logs a user into Azure Mobile Services
-        /// This request requires you to create a custom login api contoller
+        /// Logs a user into Azure
+        /// This request requires you to create a CustomLogin api contoller
         /// </summary>
         /// <param name="login">User login</param>
         /// <param name="password">User password</param>
-        /// <returns></returns>
+        /// <returns>An authenticated Azure user</returns>
         Task<MobileServiceUser> LoginAsync(string login, string password);
 
         /// <summary>
-        /// Register a user into Azure Mobile Services
-        /// This request requires you to create a custom registration api contoller
+        /// Register a user into Azure
+        /// This request requires you to create a CustomRegistration api contoller
         /// </summary>
         /// <param name="login">User login</param>
         /// <param name="password">User password</param>
         /// <param name="userInfos">Optional user registration informations</param>
-        /// <returns></returns>
+        /// <returns>An authenticated Azure user</returns>
         Task<MobileServiceUser> RegisterAsync(string login, string password, JObject userInfos = null);
 
         /// <summary>
-        /// Check if user is logged in or silent logs in with stored credentials (if exist)
-        /// Setting controlToken to true requires you to create an ControlToken custom api contoller
+        /// Retrieve identity provider authentication token when logged in for further use
+        /// This request requires you to create a CustomToken api contoller
         /// </summary>
-        /// <returns></returns>
-        Task<bool> EnsureLoggedInAsync(bool controlToken);
+        /// <returns>Identity provider authentication token</returns>
+        Task<string> GetIdentityProviderTokenAsync();
 
         /// <summary>
-        /// Logs a user out from Azure Mobile Services
+        /// Check if user is logged in or silent logs in with stored credentials (if exist)
+        /// </summary>
+        /// <returns>True if logged in</returns>
+        bool EnsureLoggedIn();
+
+        /// <summary>
+        /// Logs a user out from Azure and clear cache (if exist)
         /// </summary>
         void Logout();
     }

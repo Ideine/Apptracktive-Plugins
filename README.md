@@ -13,4 +13,4 @@ Or:
 
     await _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
 
-Open the project folder for more details.
+Open the [project folder](https://github.com/Apptracktive/Plugins/tree/master/AzureForMobile) for more details and read blog posts on [Apptracktive](http://www.apptracktive.com)

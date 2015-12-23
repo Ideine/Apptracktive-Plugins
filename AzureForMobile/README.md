@@ -293,10 +293,15 @@ Basic configuration:
 
 After AzureForMobilePluginLoader.Init(...); add on each platform:
 
-#### Android & iOS
+#### Android
 
     AzureForMobileLocalStorePluginLoader.Init(new AzureForMobileLocalStorePluginConfiguration(AzureForMobilePluginLoader.Instance, System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
-    
+
+#### iOS
+
+    SQLitePCL.CurrentPlatform.Init();
+    AzureForMobileLocalStorePluginLoader.Init(new AzureForMobileLocalStorePluginConfiguration(AzureForMobilePluginLoader.Instance, System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal)));
+
 #### WindowsPhone & Windows
 
     AzureForMobileLocalStorePluginLoader.Init(new AzureForMobileLocalStorePluginConfiguration(AzureForMobilePluginLoader.Instance, Windows.Storage.ApplicationData.Current.LocalFolder.Path));

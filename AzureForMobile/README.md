@@ -64,13 +64,30 @@ An instance of the plugin give you access by default to:
 #### Data
 
 Data give you access by default to RemoteTable< T >() where T could be one of your Model class.
-From there, you can do what you used to with standard MobileServiceTable and manage online Azure data (please refer to Azure Mobile Services documentation or see samples).
+From there, you can do what you used to with standard MobileServiceTable and manage online Azure data (please refer to Azure Mobile Services documentation or see samples), like this:
+
+    var openItems = await _azureForMobileService.Data.RemoteTable<TodoItem>().Where(t => !t.Complete).ToListAsync();
 
 #### Identity
 
 Identity offers methods to manage the login process.
 For example, it allows you to ask user for social login directly from a PCL.
-More details to come...
+
+Authenticate user with social identity provider like this (ex Facebook):
+
+    await _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
+    
+You can also register a new user with custom authentication like this:
+
+    await _azureForMobileService.Identity.RegisterAsync<YOUR_REGISTRATION_REQUEST_CLASS, YOUR_REGISTRATION_RESULT_CLASS>("NAME_OF_YOUR_REGISTRATION_CONTROLER", YOUR_REGISTRATION_REQUEST_CLASS instance);
+
+And then log in user with like this:
+
+    await _azureForMobileService.Identity.LoginAsync("NAME_OF_YOUR_LOGIN_CONTROLER", "USER_LOGIN", "USER_PASSWORD");
+    
+But if you need to, you might want to log in specifying your own request and result class like we do with registration.
+    
+Please see the backend sample for more details about the custom controlers itself.
 
 #### Api
 

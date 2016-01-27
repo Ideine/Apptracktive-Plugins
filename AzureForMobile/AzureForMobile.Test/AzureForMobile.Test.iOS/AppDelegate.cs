@@ -33,7 +33,7 @@ namespace AzureForMobile.Test.iOS
             var configuration = new AzureForMobilePluginConfiguration(Constants.AmsUrl, Constants.AmsKey, Constants.ModelAssembly);
 
             // [Optional] Handle expired token to automaticaly ask for login if needed
-            var identityHandler = new AzureForMobileIdentityHandler(configuration, AzureForMobileAuthenticationProvider.Facebook);
+            var identityHandler = new AzureForMobileIdentityHandler(configuration);
             configuration.Handlers = new HttpMessageHandler[] { identityHandler };
 
             // [Optional] Handle credentials local caching

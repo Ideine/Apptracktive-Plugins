@@ -4,10 +4,10 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
-using AptkAms.Sample.Backend.DataObjects;
-using AptkAms.Sample.Backend.Models;
+using AzureForMobile.Sample.Backend.DataObjects;
+using AzureForMobile.Sample.Backend.Models;
 
-namespace AptkAms.Sample.Backend.Controllers
+namespace AzureForMobile.Sample.Backend.Controllers
 {
     public class TodoItemController : TableController<TodoItem>
     {
@@ -19,9 +19,9 @@ namespace AptkAms.Sample.Backend.Controllers
         }
 
         // GET tables/TodoItem
-        public IQueryable<TodoItem> GetAllTodoItems()
+        public IQueryable<TodoItem> GetAllTodoItem()
         {
-            return Query();
+            return Query(); 
         }
 
         // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
@@ -33,7 +33,7 @@ namespace AptkAms.Sample.Backend.Controllers
         // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
         {
-            return UpdateAsync(id, patch);
+             return UpdateAsync(id, patch);
         }
 
         // POST tables/TodoItem
@@ -46,7 +46,8 @@ namespace AptkAms.Sample.Backend.Controllers
         // DELETE tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task DeleteTodoItem(string id)
         {
-            return DeleteAsync(id);
+             return DeleteAsync(id);
         }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
-    "Aptk.Plugins.AzureForMobile": "1.0.0-beta1",
-    "Aptk.Plugins.AzureForMobile.LocalStore": "1.0.0-beta1",
+    "Aptk.Plugins.AzureForMobile": "1.0.0-beta2",
+    "Aptk.Plugins.AzureForMobile.LocalStore": "1.0.0-beta2",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Xam.Plugins.Settings": "2.0.0",
     "Xamarin.Forms": "2.0.1.6492-pre1"

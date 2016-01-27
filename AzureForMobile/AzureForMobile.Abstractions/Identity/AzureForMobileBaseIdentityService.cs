@@ -14,7 +14,12 @@ namespace Aptk.Plugins.AzureForMobile.Identity
     {
         private readonly IAzureForMobilePluginConfiguration _configuration;
         private readonly IMobileServiceClient _client;
-        
+
+        /// <summary>
+        /// Service to manage identity
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <param name="client"></param>
         protected AzureForMobileBaseIdentityService(IAzureForMobilePluginConfiguration configuration, IMobileServiceClient client)
         {
             _configuration = configuration;
@@ -47,7 +52,7 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         /// <returns>An authenticated Azure user</returns>
         public async Task<MobileServiceUser> LoginAsync(AzureForMobileAuthenticationProvider provider, JObject token)
         {
-            if (provider == AzureForMobileAuthenticationProvider.None || provider == AzureForMobileAuthenticationProvider.LoginPassword)
+            if (provider == AzureForMobileAuthenticationProvider.None || provider == AzureForMobileAuthenticationProvider.Custom)
                 throw new ArgumentException("AzureForMobileAuthenticationProvider must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory");
 
             var user = await _client.LoginAsync(provider.ToMobileServiceAuthenticationProvider(), token);
@@ -58,59 +63,116 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         }
 
         /// <summary>
-        /// Logs a user into Azure
-        /// This request requires you to create a CustomLogin api contoller
+        /// Logs a user into Azure with login and password
+        /// Sent as JObject with login and password properties
+        /// Must be returned as JObject with userId and mobileServiceAuthenticationToken properties
+        /// This request requires you to create a custom login api contoller
         /// </summary>
+        /// <param name="apiName">The name of the custom API</param>
         /// <param name="login">User login</param>
         /// <param name="password">User password</param>
         /// <returns>An authenticated Azure user</returns>
-        public async Task<MobileServiceUser> LoginAsync(string login, string password)
+        public async Task<MobileServiceUser> LoginAsync(string apiName, string login, string password)
         {
-            var registrationInfos = new JObject
+            var loginObject = new JObject
             {
-                {"login", login},
-                {"password", password}
+                {nameof(login), login},
+                {nameof(password), password}
             };
             
-            var user = await _client.InvokeApiAsync<JObject, MobileServiceUser>("CustomLogin", registrationInfos);
-            
-            _configuration.CredentialsCacheService?.SaveCredentials(new AzureForMobileCredentials(AzureForMobileAuthenticationProvider.LoginPassword, user));
+            var result = await _client.InvokeApiAsync<JObject, JObject>(apiName, loginObject);
 
-            return user;
+            JToken userId, mobileServiceAuthenticationToken;
+
+            if(!result.TryGetValue(nameof(userId), out userId))
+                throw new KeyNotFoundException($"Your cutom login controleur must return a JObject with property {nameof(userId)}");
+
+            if (!result.TryGetValue(nameof(mobileServiceAuthenticationToken), out mobileServiceAuthenticationToken))
+                throw new KeyNotFoundException($"Your cutom login controleur must return a JObject with property {nameof(mobileServiceAuthenticationToken)}");
+
+            CurrentUser = new MobileServiceUser(userId.ToObject<string>())
+            {
+                MobileServiceAuthenticationToken = mobileServiceAuthenticationToken.ToObject<string>()
+            };
+            
+            _configuration.CredentialsCacheService?.SaveCredentials(new AzureForMobileCredentials(AzureForMobileAuthenticationProvider.Custom, CurrentUser));
+
+            return CurrentUser;
+        }
+
+        /// <summary>
+        /// Logs a user into Azure with login and password
+        /// Sent as JObject with login and password properties
+        /// Returned as T with at list MobileServiceAuthenticationToken and UserId properties implemented from the IAzureForMobileServiceUser interface
+        /// This request requires you to create a custom login api contoller
+        /// </summary>
+        /// <typeparam name="T">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="login">User login</param>
+        /// <param name="password">User password</param>
+        /// <returns>An authenticated Azure user</returns>
+        public async Task<Tuple<MobileServiceUser, T>> LoginAsync<T>(string apiName, string login, string password)
+        {
+            var loginObject = new JObject
+            {
+                {nameof(login), login},
+                {nameof(password), password}
+            };
+
+            var result = await _client.InvokeApiAsync<JObject, T>(apiName, loginObject);
+            var user = result as IAzureForMobileServiceUser;
+            if(user == null)
+                throw new InvalidCastException($"Your {nameof(T)} class must implement the {nameof(IAzureForMobileServiceUser)} interface");
+
+            CurrentUser = new MobileServiceUser(user.UserId)
+            {
+                MobileServiceAuthenticationToken = user.MobileServiceAuthenticationToken
+            };
+
+            _configuration.CredentialsCacheService?.SaveCredentials(new AzureForMobileCredentials(AzureForMobileAuthenticationProvider.Custom, CurrentUser));
+
+            return new Tuple<MobileServiceUser, T>(CurrentUser, result);
+        }
+
+        /// <summary>
+        /// Logs a user into Azure with whatever you want
+        /// Sent as T with whatever property you want
+        /// Returned as U with at list MobileServiceAuthenticationToken and UserId properties implemented from the IAzureForMobileServiceUser interface
+        /// This request requires you to create a custom login api contoller
+        /// </summary>
+        /// <typeparam name="T">The type of the sent instance</typeparam>
+        /// <typeparam name="U">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="body">The value to be sent as the HTTP body</param>
+        /// <returns>An authenticated Azure user</returns>
+        public async Task<Tuple<MobileServiceUser, U>> LoginAsync<T, U>(string apiName, T body)
+        {
+            var result = await _client.InvokeApiAsync<T, U>(apiName, body);
+            var user = result as IAzureForMobileServiceUser;
+            if (user == null)
+                throw new InvalidCastException($"Your {nameof(U)} class must implement the {nameof(IAzureForMobileServiceUser)} interface");
+
+            CurrentUser = new MobileServiceUser(user.UserId)
+            {
+                MobileServiceAuthenticationToken = user.MobileServiceAuthenticationToken
+            };
+
+            _configuration.CredentialsCacheService?.SaveCredentials(new AzureForMobileCredentials(AzureForMobileAuthenticationProvider.Custom, CurrentUser));
+
+            return new Tuple<MobileServiceUser, U>(CurrentUser, result);
         }
 
         /// <summary>
         /// Register a user into Azure
-        /// This request requires you to create a CustomRegistration api contoller
+        /// This request requires you to create a custom registration api contoller
         /// </summary>
-        /// <param name="login">User login</param>
-        /// <param name="password">User password</param>
-        /// <param name="userInfos">Optional user registration informations</param>
-        /// <returns>An authenticated Azure user</returns>
-        public async Task<MobileServiceUser> RegisterAsync(string login, string password, JObject userInfos = null)
+        /// <typeparam name="T">The type of the sent instance</typeparam>
+        /// <typeparam name="U">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="body">The value to be sent as the HTTP body</param>
+        public async Task<U> RegisterAsync<T, U>(string apiName, T body)
         {
-            var registration = new JObject
-            {
-                {"login", login},
-                {"password", password},
-                userInfos
-            };
-            
-            var user = await _client.InvokeApiAsync<JObject, MobileServiceUser>("CustomRegistration", registration);
-            
-            _configuration.CredentialsCacheService?.SaveCredentials(new AzureForMobileCredentials(AzureForMobileAuthenticationProvider.LoginPassword, user));
-
-            return user;
-        }
-
-        /// <summary>
-        /// Retrieve social authentication token when logged in for further use
-        /// This request requires you to create a CustomToken api contoller
-        /// </summary>
-        /// <returns>Identity provider authentication token</returns>
-        public async Task<string> GetIdentityProviderTokenAsync()
-        {
-            return await _client.InvokeApiAsync<string>("CustomToken");
+            return await _client.InvokeApiAsync<T, U>(apiName, body);
         }
 
         /// <summary>
@@ -149,7 +211,7 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         /// Code from Glenn Gailey
         /// </summary>
         /// <param name="token"></param>
-        /// <returns></returns>
+        /// <returns>True if token is still valid, else false</returns>
         private static bool ControlToken(string token)
         {
             // Check for a signed-in user.
@@ -191,7 +253,7 @@ namespace Aptk.Plugins.AzureForMobile.Identity
             var expire = minTime.AddSeconds(exp);
 
             // If the expiration date is less than now, the token is expired and we return true.
-            return expire < DateTime.UtcNow;
+            return expire > DateTime.UtcNow;
         }
     }
 }

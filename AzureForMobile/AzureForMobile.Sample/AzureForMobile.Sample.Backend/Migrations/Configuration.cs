@@ -1,18 +1,16 @@
-namespace AptkAms.Sample.Backend.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+using System.Data.Entity.Migrations;
+using AzureForMobile.Sample.Backend.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AptkAms.Sample.Backend.Models.MobileServiceContext>
+namespace AzureForMobile.Sample.Backend.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<MobileServiceContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(AptkAms.Sample.Backend.Models.MobileServiceContext context)
+        protected override void Seed(MobileServiceContext context)
         {
             //  This method will be called after migrating to the latest version.
 

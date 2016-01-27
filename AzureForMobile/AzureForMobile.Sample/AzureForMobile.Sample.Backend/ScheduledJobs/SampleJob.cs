@@ -2,7 +2,7 @@
 using System.Web.Http;
 using Microsoft.WindowsAzure.Mobile.Service;
 
-namespace AptkAms.Sample.Backend.ScheduledJobs
+namespace AzureForMobile.Sample.Backend.ScheduledJobs
 {
     // A simple scheduled job which can be invoked manually by submitting an HTTP
     // POST request to the path "/jobs/sample".

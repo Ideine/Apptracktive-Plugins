@@ -172,15 +172,15 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Aptk.Plugins.AzureForMobile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta1\lib\wp8\Aptk.Plugins.AzureForMobile.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta2\lib\wp8\Aptk.Plugins.AzureForMobile.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureForMobile.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta1\lib\wp8\Aptk.Plugins.AzureForMobile.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta2\lib\wp8\Aptk.Plugins.AzureForMobile.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureForMobile.LocalStore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.LocalStore.1.0.0-beta1\lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.LocalStore.1.0.0-beta2\lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">

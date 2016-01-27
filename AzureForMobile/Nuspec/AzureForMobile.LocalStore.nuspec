@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Aptk.Plugins.AzureForMobile.LocalStore</id>
-        <version>1.0.0-beta1</version>
+        <version>1.0.0-beta2</version>
         <title>AzureForMobile Plugin's LocalStore Extension for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
@@ -16,7 +16,10 @@ Tuto available on http://www.apptracktive.com
 Sources, documentation and samples on https://github.com/Apptracktive
 Twitter @Apptracktive</description>
         <summary>AzureForMobile Plugin's LocalStore Extension for Xamarin and Windows</summary>
-        <releaseNotes>1.0.0-beta1:
+        <releaseNotes>1.0.0-beta2:
+[Fix] No more T needed with PullAsync request
+
+1.0.0-beta1:
 [New] Manage local data
 [New] Manage data synchronization
 [New] All API available from a single line of code</releaseNotes>
@@ -34,6 +37,6 @@ Twitter @Apptracktive</description>
         <file src="content\wp8\ToDo-AzureForMobile.LocalStore\WinPhone_Setup.txt" target="content\wp8\ToDo-AzureForMobile.LocalStore\WinPhone_Setup.txt" />
         <file src="content\wpa81\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" target="content\wpa81\ToDo-AzureForMobile.LocalStore\WinRT_Setup.txt" />
         <file src="content\Xamarin.iOS10\ToDo-AzureForMobile.LocalStore\iOS_Setup.txt" target="content\Xamarin.iOS10\ToDo-AzureForMobile.LocalStore\iOS_Setup.txt" />
-        <file src="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll" />
+        <file src="..\AzureForMobile.LocalStore\bin\Release\Aptk.Plugins.AzureForMobile.LocalStore.dll" target="lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll" />
     </files>
 </package>

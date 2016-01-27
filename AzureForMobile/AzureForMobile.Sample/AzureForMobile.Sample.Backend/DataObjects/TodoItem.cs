@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Mobile.Service;
 
-namespace AptkAms.Sample.Backend.DataObjects
+namespace AzureForMobile.Sample.Backend.DataObjects
 {
     public class TodoItem : EntityData
     {

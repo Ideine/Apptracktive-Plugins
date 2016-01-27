@@ -26,7 +26,7 @@ namespace AzureForMobile.Sample.Core
         {
             base.OnAppearing();
 
-            await _azureForMobileService.Data.LocalTable<TodoItem>().PullAsync<TodoItem>(new CancellationToken());
+            await _azureForMobileService.Data.LocalTable<TodoItem>().PullAsync(new CancellationToken());
             ToDoItems.ItemsSource = await GetTodoItemsAsync();
         }
 
@@ -116,9 +116,9 @@ namespace AzureForMobile.Sample.Core
 
         public async void OnLog(object sender, EventArgs e)
         {
-            if (!await _azureForMobileService.Identity.EnsureLoggedInAsync(false))
+            if (!_azureForMobileService.Identity.EnsureLoggedIn())
             {
-                await _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
+                await _azureForMobileService.Identity.LoginAsync("CustomLogin", "Your login here", "Your password here");
             }
         }
     }

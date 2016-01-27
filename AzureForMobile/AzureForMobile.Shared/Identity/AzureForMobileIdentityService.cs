@@ -16,7 +16,7 @@ namespace Aptk.Plugins.AzureForMobile.Identity
 
         public override async Task<MobileServiceUser> LoginAsync(AzureForMobileAuthenticationProvider provider, IDictionary<string, string> parameters = null, bool useSingleSignOnIfAvailable = false)
         {
-            if (provider == AzureForMobileAuthenticationProvider.None || provider == AzureForMobileAuthenticationProvider.LoginPassword)
+            if (provider == AzureForMobileAuthenticationProvider.None || provider == AzureForMobileAuthenticationProvider.Custom)
                 throw new ArgumentException("AzureForMobileAuthenticationProvider must be of type MicrosoftAccount, Google, Twitter, Facebook or WindowsAzureActiveDirectory");
 
             var user = await AzureForMobilePluginLoader.PlatformIdentityInstance.LoginAsync(provider.ToMobileServiceAuthenticationProvider(), parameters, useSingleSignOnIfAvailable);

@@ -15,14 +15,14 @@ namespace AzureForMobile.Test.Core.Helpers
     public class AzureForMobileIdentityHandler : DelegatingHandler
     {
         private readonly IAzureForMobilePluginConfiguration _configuration;
-        private AzureForMobileAuthenticationProvider _provider;
+        private readonly Action _onLoggedOut;
         private IAzureForMobileCredentials _credentials;
         public IAzureForMobileService AzureForMobileService;
 
-        public AzureForMobileIdentityHandler(IAzureForMobilePluginConfiguration configuration, AzureForMobileAuthenticationProvider defaultProvider)
+        public AzureForMobileIdentityHandler(IAzureForMobilePluginConfiguration configuration, Action onLoggedOut = null)
         {
             _configuration = configuration;
-            _provider = defaultProvider;
+            _onLoggedOut = onLoggedOut;
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -48,7 +48,6 @@ namespace AzureForMobile.Test.Core.Helpers
                     && AzureForMobileService.Identity.CurrentUser.MobileServiceAuthenticationToken != _credentials.User.MobileServiceAuthenticationToken)))
                 {
                     AzureForMobileService.Identity.CurrentUser = _credentials.User;
-                    _provider = _credentials.Provider;
 
                     clonedRequest.Headers.Remove("X-ZUMO-AUTH");
                     // Set the authentication header
@@ -59,19 +58,17 @@ namespace AzureForMobile.Test.Core.Helpers
                 }
 
                 if (response.StatusCode == HttpStatusCode.Unauthorized
-                    && _provider != AzureForMobileAuthenticationProvider.None
-                    && _provider != AzureForMobileAuthenticationProvider.LoginPassword)
+                    && _credentials != null
+                    && _credentials.Provider != AzureForMobileAuthenticationProvider.None
+                    && _credentials.Provider != AzureForMobileAuthenticationProvider.Custom)
                 {
-                    if (_credentials != null)
-                        _provider = _credentials.Provider;
-
                     try
                     {
                         // Login user again
-                        var user = await AzureForMobileService.Identity.LoginAsync(_provider);
+                        var user = await AzureForMobileService.Identity.LoginAsync(_credentials.Provider);
 
                         // Save the user if possible
-                        if (_credentials == null) _credentials = new AzureForMobileCredentials(_provider, user);
+                        if (_credentials == null) _credentials = new AzureForMobileCredentials(_credentials.Provider, user);
                         _configuration.CredentialsCacheService?.SaveCredentials(_credentials);
 
                         clonedRequest.Headers.Remove("X-ZUMO-AUTH");
@@ -86,6 +83,11 @@ namespace AzureForMobile.Test.Core.Helpers
                         // user cancelled auth, so lets return the original response
                         return response;
                     }
+                }
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    _onLoggedOut?.Invoke();
                 }
             }
 

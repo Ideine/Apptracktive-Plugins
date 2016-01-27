@@ -1,5 +1,8 @@
 namespace Aptk.Plugins.AzureForMobile.Identity
 {
+    /// <summary>
+    /// Authentication providers
+    /// </summary>
     public enum AzureForMobileAuthenticationProvider
     {
         /// <summary>
@@ -27,8 +30,8 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         /// </summary>
         WindowsAzureActiveDirectory = 5,
         /// <summary>
-        /// Classic login and password authentication provider.
+        /// Custom authentication provider.
         /// </summary>
-        LoginPassword = 6
+        Custom = 6
     }
 }

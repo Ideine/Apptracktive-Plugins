@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
@@ -33,30 +34,52 @@ namespace Aptk.Plugins.AzureForMobile.Identity
         Task<MobileServiceUser> LoginAsync(AzureForMobileAuthenticationProvider provider, JObject token);
 
         /// <summary>
-        /// Logs a user into Azure
-        /// This request requires you to create a CustomLogin api contoller
+        /// Logs a user into Azure with login and password
+        /// Sent as JObject with login and password properties
+        /// Must be returned as JObject with userId and mobileServiceAuthenticationToken properties
+        /// This request requires you to create a custom login api contoller
         /// </summary>
+        /// <param name="apiName">The name of the custom API</param>
         /// <param name="login">User login</param>
         /// <param name="password">User password</param>
         /// <returns>An authenticated Azure user</returns>
-        Task<MobileServiceUser> LoginAsync(string login, string password);
+        Task<MobileServiceUser> LoginAsync(string apiName, string login, string password);
+
+        /// <summary>
+        /// Logs a user into Azure with login and password
+        /// Sent as JObject with login and password properties
+        /// Returned as T with at list MobileServiceAuthenticationToken and UserId properties implemented from the IAzureForMobileServiceUser interface
+        /// This request requires you to create a custom login api contoller
+        /// </summary>
+        /// <typeparam name="T">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="login">User login</param>
+        /// <param name="password">User password</param>
+        /// <returns>An authenticated Azure user</returns>
+        Task<Tuple<MobileServiceUser, T>> LoginAsync<T>(string apiName, string login, string password);
+
+        /// <summary>
+        /// Logs a user into Azure with whatever you want
+        /// Sent as T with whatever property you want
+        /// Returned as U with at list MobileServiceAuthenticationToken and UserId properties implemented from the IAzureForMobileServiceUser interface
+        /// This request requires you to create a custom login api contoller
+        /// </summary>
+        /// <typeparam name="T">The type of the sent instance</typeparam>
+        /// <typeparam name="U">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="body">The value to be sent as the HTTP body</param>
+        /// <returns>An authenticated Azure user</returns>
+        Task<Tuple<MobileServiceUser, U>> LoginAsync<T, U>(string apiName, T body);
 
         /// <summary>
         /// Register a user into Azure
-        /// This request requires you to create a CustomRegistration api contoller
+        /// This request requires you to create a custom registration api contoller
         /// </summary>
-        /// <param name="login">User login</param>
-        /// <param name="password">User password</param>
-        /// <param name="userInfos">Optional user registration informations</param>
-        /// <returns>An authenticated Azure user</returns>
-        Task<MobileServiceUser> RegisterAsync(string login, string password, JObject userInfos = null);
-
-        /// <summary>
-        /// Retrieve identity provider authentication token when logged in for further use
-        /// This request requires you to create a CustomToken api contoller
-        /// </summary>
-        /// <returns>Identity provider authentication token</returns>
-        Task<string> GetIdentityProviderTokenAsync();
+        /// <typeparam name="T">The type of the sent instance</typeparam>
+        /// <typeparam name="U">The type of the returned instance</typeparam>
+        /// <param name="apiName">The name of the custom API</param>
+        /// <param name="body">The value to be sent as the HTTP body</param>
+        Task<U> RegisterAsync<T, U>(string apiName, T body);
 
         /// <summary>
         /// Check if user is logged in or silent logs in with stored credentials (if exist)

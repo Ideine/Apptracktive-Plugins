@@ -1,11 +1,11 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using AzureForMobile.Sample.Backend.DataObjects;
 using Microsoft.WindowsAzure.Mobile.Service;
 using Microsoft.WindowsAzure.Mobile.Service.Tables;
-using AptkAms.Sample.Backend.DataObjects;
 
-namespace AptkAms.Sample.Backend.Models
+namespace AzureForMobile.Sample.Backend.Models
 {
 
     public class MobileServiceContext : DbContext
@@ -27,8 +27,6 @@ namespace AptkAms.Sample.Backend.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             string schema = ServiceSettingsDictionary.GetSchemaName();
@@ -41,6 +39,10 @@ namespace AptkAms.Sample.Backend.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public DbSet<TodoItem> TodoItems { get; set; }
+
+        public DbSet<Account> Accounts { get; set; }
     }
 
 }

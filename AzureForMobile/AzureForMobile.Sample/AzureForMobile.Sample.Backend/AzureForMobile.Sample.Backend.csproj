@@ -221,11 +221,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CustomLoginController.cs" />
+    <Compile Include="Controllers\CustomRegistrationController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="DataObjects\Account.cs" />
+    <Compile Include="DataObjects\LoginRequest.cs" />
+    <Compile Include="DataObjects\RegistrationRequest.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
-    <Compile Include="Migrations\201511121239155_FirstMigration.cs" />
-    <Compile Include="Migrations\201511121239155_FirstMigration.Designer.cs">
-      <DependentUpon>201511121239155_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201601271226550_FirstMigration.cs" />
+    <Compile Include="Migrations\201601271226550_FirstMigration.Designer.cs">
+      <DependentUpon>201601271226550_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -234,6 +239,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CustomLoginProviderUtils.cs" />
+    <Compile Include="Utils\CustomLoginProviderCredentials.cs" />
+    <Compile Include="Utils\CustomLoginProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -255,11 +263,12 @@
     <Content Include="Performance\Microsoft.ServiceBus.MessagingPerformanceCounters.man" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\aptk-azureformobile - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\mobile%24AptkAmsSampleBackend.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511121239155_FirstMigration.resx">
-      <DependentUpon>201511121239155_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601271226550_FirstMigration.resx">
+      <DependentUpon>201601271226550_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

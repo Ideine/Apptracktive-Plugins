@@ -1,7 +1,5 @@
-﻿using System.Web.Http;
-using System.Web.Routing;
-
-namespace AptkAms.Sample.Backend
+﻿
+namespace AzureForMobile.Sample.Backend
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

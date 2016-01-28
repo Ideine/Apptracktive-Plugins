@@ -44,15 +44,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aptk.Plugins.AzureForMobile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta1\lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta2\lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureForMobile.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta1\lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.1.0.0-beta2\lib\MonoAndroid10\Aptk.Plugins.AzureForMobile.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Aptk.Plugins.AzureForMobile.LocalStore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.LocalStore.1.0.0-beta1\lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll</HintPath>
+      <HintPath>..\packages\Aptk.Plugins.AzureForMobile.LocalStore.1.0.0-beta2\lib\portable-net45+win8+wp8+MonoTouch10+MonoAndroid10+wpa81+Xamarin.iOS10+UAP10\Aptk.Plugins.AzureForMobile.LocalStore.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Logo_RVB-72.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ToDo-AzureForMobile.LocalStore\Droid_Setup.txt" />
     <Content Include="ToDo-AzureForMobile\Droid_Setup.txt" />
   </ItemGroup>

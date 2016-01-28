@@ -64,13 +64,30 @@ An instance of the plugin give you access by default to:
 #### Data
 
 Data give you access by default to RemoteTable< T >() where T could be one of your Model class.
-From there, you can do what you used to with standard MobileServiceTable and manage online Azure data (please refer to Azure Mobile Services documentation or see samples).
+From there, you can do what you used to with standard MobileServiceTable and manage online Azure data (please refer to Azure Mobile Services documentation or see samples), like this:
+
+    var openItems = await _azureForMobileService.Data.RemoteTable<TodoItem>().Where(t => !t.Complete).ToListAsync();
 
 #### Identity
 
 Identity offers methods to manage the login process.
 For example, it allows you to ask user for social login directly from a PCL.
-More details to come...
+
+Authenticate user with social identity provider like this (ex Facebook):
+
+    await _azureForMobileService.Identity.LoginAsync(AzureForMobileAuthenticationProvider.Facebook);
+    
+You can also register a new user with custom authentication like this:
+
+    await _azureForMobileService.Identity.RegisterAsync<YOUR_REGISTRATION_REQUEST_CLASS, YOUR_REGISTRATION_RESULT_CLASS>("NAME_OF_YOUR_REGISTRATION_CONTROLER", YOUR_REGISTRATION_REQUEST_CLASS instance);
+
+And then log in user like this:
+
+    await _azureForMobileService.Identity.LoginAsync("NAME_OF_YOUR_LOGIN_CONTROLER", "USER_LOGIN", "USER_PASSWORD");
+    
+But if you need to, you might want to log in specifying your own request and result class like we do with registration.
+    
+Please see the backend sample for more details about the custom controlers itself.
 
 #### Api
 
@@ -82,7 +99,7 @@ Api is here to send custom requests to custom Azure controllers.
 
 You can specify custom handlers.
 
-One thing you can do with handler is automaticaly ask user to log in again when his token expired or if not yet logged in.
+One thing you can do with handler is automaticaly use cashed token to authenticate unauthorized request and then ask user to log in again if his token expired or if not yet logged in thanks to callback action.
 
 
     /// <summary>
@@ -91,14 +108,14 @@ One thing you can do with handler is automaticaly ask user to log in again when 
     public class AzureForMobileIdentityHandler : DelegatingHandler
     {
         private readonly IAzureForMobilePluginConfiguration _configuration;
-        private AzureForMobileAuthenticationProvider _provider;
+        private readonly Action _onLoggedOut;
         private IAzureForMobileCredentials _credentials;
         public IAzureForMobileService AzureForMobileService;
 
-        public AzureForMobileIdentityHandler(IAzureForMobilePluginConfiguration configuration, AzureForMobileAuthenticationProvider defaultProvider)
+        public AzureForMobileIdentityHandler(IAzureForMobilePluginConfiguration configuration, Action onLoggedOut = null)
         {
             _configuration = configuration;
-            _provider = defaultProvider;
+            _onLoggedOut = onLoggedOut;
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -124,7 +141,6 @@ One thing you can do with handler is automaticaly ask user to log in again when 
                     && AzureForMobileService.Identity.CurrentUser.MobileServiceAuthenticationToken != _credentials.User.MobileServiceAuthenticationToken)))
                 {
                     AzureForMobileService.Identity.CurrentUser = _credentials.User;
-                    _provider = _credentials.Provider;
 
                     clonedRequest.Headers.Remove("X-ZUMO-AUTH");
                     // Set the authentication header
@@ -135,19 +151,17 @@ One thing you can do with handler is automaticaly ask user to log in again when 
                 }
 
                 if (response.StatusCode == HttpStatusCode.Unauthorized
-                    && _provider != AzureForMobileAuthenticationProvider.None
-                    && _provider != AzureForMobileAuthenticationProvider.LoginPassword)
+                    && _credentials != null
+                    && _credentials.Provider != AzureForMobileAuthenticationProvider.None
+                    && _credentials.Provider != AzureForMobileAuthenticationProvider.Custom)
                 {
-                    if (_credentials != null)
-                        _provider = _credentials.Provider;
-
                     try
                     {
-                        // Log in user again
-                        var user = await AzureForMobileService.Identity.LoginAsync(_provider);
+                        // Login user again
+                        var user = await AzureForMobileService.Identity.LoginAsync(_credentials.Provider);
 
                         // Save the user if possible
-                        if (_credentials == null) _credentials = new AzureForMobileCredentials(_provider, user);
+                        if (_credentials == null) _credentials = new AzureForMobileCredentials(_credentials.Provider, user);
                         _configuration.CredentialsCacheService?.SaveCredentials(_credentials);
 
                         clonedRequest.Headers.Remove("X-ZUMO-AUTH");
@@ -162,6 +176,11 @@ One thing you can do with handler is automaticaly ask user to log in again when 
                         // user cancelled auth, so lets return the original response
                         return response;
                     }
+                }
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    _onLoggedOut?.Invoke();
                 }
             }
 
@@ -200,8 +219,9 @@ This code example:
 1. Send a request to Azure
 2. Check server response and if unauthorized
 3. Check last used identity provider and automaticaly ask your user to log in with it again
-4. If not yet logged in, it use a default identity provider to log in (I should change that part by an Action like onError so that we could show an identity provider picker view)
+4. If not yet logged in, execute the callback action if defined (like showing an identity provider picker login view for example)
 5. When logged in again, send the original request
+6. If still unauthorized, throw
 
 
 
@@ -209,7 +229,7 @@ Now you created your custom handler, you have to tell the plugin to use it thank
 
 Between var configuration = new AzureForMobilePluginConfiguration(...); and AzureForMobilePluginLoader.Init(...); add:
 
-    var identityHandler = new AzureForMobileIdentityHandler(configuration, AzureForMobileAuthenticationProvider.Facebook);
+    var identityHandler = new AzureForMobileIdentityHandler(configuration, [Optional] YOUR_ACTION_IF_LOGGED_OUT);
     configuration.Handlers = new HttpMessageHandler[] { identityHandler };
 
 Then, after AzureForMobilePluginLoader.Init(...); add:

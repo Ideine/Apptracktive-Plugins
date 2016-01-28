@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Http;
-using AptkAms.Sample.Backend.DataObjects;
-using AptkAms.Sample.Backend.Migrations;
-using AptkAms.Sample.Backend.Models;
+using AzureForMobile.Sample.Backend.Migrations;
+using AzureForMobile.Sample.Backend.Models;
 using Microsoft.WindowsAzure.Mobile.Service;
 
-namespace AptkAms.Sample.Backend
+namespace AzureForMobile.Sample.Backend
 {
     public static class WebApiConfig
     {

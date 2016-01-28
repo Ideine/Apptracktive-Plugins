@@ -57,6 +57,7 @@
     <Compile Include="Identity\IAzureForMobileIdentityService.cs" />
     <Compile Include="IAzureForMobileService.cs" />
     <Compile Include="Identity\IAzureForMobilePlatformIdentityService.cs" />
+    <Compile Include="Identity\IAzureForMobileServiceUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

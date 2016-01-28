@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>Aptk.Plugins.AzureForMobile</id>
-        <version>1.0.0-beta1</version>
+        <version>1.0.0-beta2</version>
         <title>AzureForMobile Plugin for Xamarin and Windows</title>
         <authors>Apptracktive</authors>
         <owners>Apptracktive</owners>
@@ -28,7 +28,13 @@ Tuto available on http://www.apptracktive.com
 Sources, documentation and samples on https://github.com/Apptracktive
 Twitter @Apptracktive</description>
         <summary>AzureForMobile Plugin for Xamarin and Windows</summary>
-        <releaseNotes>1.0.0-beta1:
+        <releaseNotes>1.0.0-beta2:
+[Fix] LoginAsync with login and password fixed
+[New] Now you can specify your own login request and result classes
+[Fix] RegisterAsync fixed
+[New] HttpHandler example now use an action callback if logged out
+
+1.0.0-beta1:
 [New] Initialization configurable with many options
 [New] Manage remote data
 [New] Manage local data (with Local Store Extension)
